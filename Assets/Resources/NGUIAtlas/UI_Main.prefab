@@ -41,11 +41,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 240239bcfedb447129c13846c737607e, type: 2}
   mSprites:
-  - name: _0000_upper_hud_group
-    x: 721
-    y: 1204
-    width: 684
-    height: 68
+  - name: button_template
+    x: 405
+    y: 687
+    width: 305
+    height: 80
     borderLeft: 0
     borderRight: 0
     borderTop: 0
@@ -54,33 +54,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: _0001_main_game
-    x: 721
-    y: 1273
-    width: 684
-    height: 775
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: _0002_lower_button_group
-    x: 0
-    y: 422
-    width: 684
-    height: 115
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: _0003_dialogue
+  - name: dialogue
     x: 0
     y: 538
     width: 404
@@ -93,11 +67,37 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: _0004_hero
+  - name: hero
     x: 0
     y: 173
     width: 231
     height: 248
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: lower_button_group
+    x: 0
+    y: 422
+    width: 684
+    height: 115
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_game
+    x: 721
+    y: 1273
+    width: 684
+    height: 775
     borderLeft: 0
     borderRight: 0
     borderTop: 0
@@ -111,6 +111,32 @@ MonoBehaviour:
     y: 768
     width: 720
     height: 1280
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Ubuntu
+    x: 405
+    y: 559
+    width: 127
+    height: 127
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 1
+    paddingTop: 1
+    paddingBottom: 0
+  - name: upper_hud_group
+    x: 721
+    y: 1204
+    width: 684
+    height: 68
     borderLeft: 0
     borderRight: 0
     borderTop: 0
