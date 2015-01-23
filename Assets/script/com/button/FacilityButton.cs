@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SellButton : SimpleButton
+public class FacilityButton : SimpleButton
 {
 	public override void OnClick ()
 	{
-		Debug.Log ("Sell Button");
+		Debug.Log ("Facility Button");
 	}
 }

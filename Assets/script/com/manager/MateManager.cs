@@ -7,14 +7,15 @@ public class MateManager
 	public static void Mate ()
 	{
 		if (Random.value > _successRate) {
-			Pawn pawn = Pawn.SprayPawn (Game.Instance ().transform);
+			Pawn.SprayPawn (Game.Instance ().transform);
 			return;
 		}
 	}
 
-	public const float MATE_INTERVAL = 0.4f;
+	public const float MATE_INTERVAL_BASE = 2.0f;
+	public const float MATE_INTERVAL_RATE = 0.4f;
 	private static bool _interrupt = false;
-	private static float _successRate = 0.4f;
+	private static float _successRate = 1.0f;
 
 	// Start this coroutine from game after game initialized
 	public static IEnumerator StartMate ()
@@ -23,7 +24,9 @@ public class MateManager
 
 			Mate ();
 
-			yield return new WaitForSeconds (MATE_INTERVAL);
+			float _interval = MATE_INTERVAL_BASE + MATE_INTERVAL_RATE * PawnManager.Instance ().pawns.Count;
+
+			yield return new WaitForSeconds (MATE_INTERVAL_RATE);
 		}
 	}
 }

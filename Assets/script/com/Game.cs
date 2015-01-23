@@ -18,6 +18,7 @@ public class Game : MonoBehaviour
 	// should set in Unity Editor
 	public UIAtlas UIAtlasMain;
 	public UIAtlas UIAtlasPawn;
+	public Camera UICamera;
 	public Rect GameArea;
 
 	// publc

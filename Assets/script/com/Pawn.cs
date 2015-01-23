@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections;
 
+
+
 public class Pawn : MonoBehaviour
 {
 	// static utilities
@@ -24,6 +26,9 @@ public class Pawn : MonoBehaviour
 	// public data
 	public string pawnName = "";
 	public Vector2 speed = Vector2.zero;
+	public PawnRank rank = PawnRank.C;
+
+
 	private Rect boundRect;
 	private const float MIN_SPEED_X = 1.55f;
 	private const float MAX_SPEED_X = 2.55f;
@@ -58,6 +63,20 @@ public class Pawn : MonoBehaviour
 		// set speed
 		speed.x = Random.Range (MIN_SPEED_X, MAX_SPEED_X);
 		speed.y = Random.Range (MIN_SPEED_Y, MAX_SPEED_Y);
+
+		if (Random.value < .5f) {
+			speed.x *= -1;
+		}
+		if (Random.value < .5f) {
+			speed.y *= -1;
+		}
+
+
+		// Squashing
+		iTween.ScaleBy(gameObject, iTween.Hash ("amount", new Vector3 (0.85f, 1.15f, 1f),
+		                                        "islocal", true,
+		                                        "time", 2f,
+				                                "looptype", iTween.LoopType.pingPong));
 	}
 
 	private void Update ()
@@ -102,4 +121,12 @@ public class Pawn : MonoBehaviour
 		transform.localPosition = tmplPoint;
 	}
 
+}
+
+public enum PawnRank
+{
+	C,
+	B,
+	A,
+	S
 }
