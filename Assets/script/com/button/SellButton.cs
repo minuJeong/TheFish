@@ -5,6 +5,13 @@ public class SellButton : SimpleButton
 {
 	public override void OnClick ()
 	{
-		Debug.Log ("Sell Button");
+		foreach (var pawn in PawnManager.Instance().pawns) {
+			if (pawn.growthIndex > 0) {
+				Destroy (pawn.gameObject, 0.1f);
+				PawnManager.Instance().pawns.Remove (pawn);
+				Game.Instance ().money += 100;
+				break;
+			}
+		}
 	}
 }

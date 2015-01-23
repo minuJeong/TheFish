@@ -6,9 +6,8 @@ public class MateManager
 	// 
 	public static void Mate ()
 	{
-		if (Random.value > _successRate) {
+		if (Random.value <= _successRate) {
 			Pawn.SprayPawn (Game.Instance ().transform);
-			return;
 		}
 	}
 
@@ -24,9 +23,15 @@ public class MateManager
 
 			Mate ();
 
-			float _interval = MATE_INTERVAL_BASE + MATE_INTERVAL_RATE * PawnManager.Instance ().pawns.Count;
+			float _interval = 0f;
 
-			yield return new WaitForSeconds (MATE_INTERVAL_RATE);
+			if (PawnManager.Instance ().pawns.Count > 0) {
+				_interval = MATE_INTERVAL_BASE + (MATE_INTERVAL_RATE / PawnManager.Instance ().pawns.Count);
+			} else {
+				_interval = MATE_INTERVAL_BASE;
+			}
+
+			yield return new WaitForSeconds (_interval);
 		}
 	}
 }
