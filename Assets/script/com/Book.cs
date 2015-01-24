@@ -22,7 +22,7 @@ public class Book
     // Use this for initialization
     public void Init()
     {
-        string filename = Application.dataPath + "/Data/" + "fish_list.json";
+        string filename = Application.dataPath + "/Resources/info/" + "fish_list.json";
         string txt = File.ReadAllText(filename);
         JsonReader reader = new JsonReader(txt);
 
