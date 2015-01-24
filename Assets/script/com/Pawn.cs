@@ -35,6 +35,8 @@ public class Pawn : MonoBehaviour
 			return null;
 		}
 
+        SoundManager.Instance().Play("crossbreed");
+
 		Pawn pawn = new GameObject ("Pawn").AddComponent<Pawn> ();
 		PawnManager.Instance ().pawns.Add (pawn);
 
@@ -96,7 +98,6 @@ public class Pawn : MonoBehaviour
 	private static JsonData RankData = null;
 
 	// public data
-	public string pawnName = "";
 	public Vector2 speed = Vector2.zero;
 	public int rankFactor = 0;
 	public string rankName = "C";
