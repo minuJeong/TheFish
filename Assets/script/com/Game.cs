@@ -33,6 +33,7 @@ public class Game : MonoBehaviour
 
 	void Start ()
 	{
-		StartCoroutine (MateManager.StartMate ());
+		Pawn.SprayPawn (transform, 1);
+		Pawn.SprayPawn (transform, 1);
 	}
 }

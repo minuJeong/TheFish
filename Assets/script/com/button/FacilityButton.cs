@@ -3,8 +3,15 @@ using System.Collections;
 
 public class FacilityButton : SimpleButton
 {
-	public override void OnClick ()
+	// should set in Unity Editor
+	public GameObject Target;
+
+	public override void Clicked ()
 	{
-		Debug.Log ("Facility Button");
+		if (Target.activeSelf) {
+			Target.SetActive (false);
+		} else {
+			Target.SetActive (true);
+		}
 	}
 }

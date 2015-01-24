@@ -41,6 +41,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 240239bcfedb447129c13846c737607e, type: 2}
   mSprites:
+  - name: button_close
+    x: 232
+    y: 67
+    width: 135
+    height: 107
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: button_template
     x: 405
     y: 256

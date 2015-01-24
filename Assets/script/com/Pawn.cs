@@ -1,12 +1,26 @@
 using LitJson;
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+
+public enum PawnRank
+{
+	C,
+	B,
+	A,
+	S
+}
 
 public class Pawn : MonoBehaviour
 {
 	// static utilities
 	public static Pawn SprayPawn ()
 	{
+		if (PawnManager.Instance ().isPawnMax ()) {
+			// Pawn is full
+			return null;
+		}
+
 		Pawn pawn = new GameObject ("Pawn").AddComponent<Pawn> ();
 		PawnManager.Instance ().pawns.Add (pawn);
 
@@ -18,7 +32,17 @@ public class Pawn : MonoBehaviour
 	public static Pawn SprayPawn (Transform parent_transform)
 	{
 		Pawn pawn = SprayPawn ();
+		if (pawn == null) {
+			return null;
+		}
 		pawn.transform.parent = parent_transform;
+		return pawn;
+	}
+
+	public static Pawn SprayPawn (Transform parent_transform, int growthIndex)
+	{
+		Pawn pawn = SprayPawn (parent_transform);
+		pawn.growthIndex = growthIndex;
 		return pawn;
 	}
 
@@ -46,7 +70,7 @@ public class Pawn : MonoBehaviour
 			GrowthData = JsonMapper.ToObject (Resources.Load<TextAsset> ("info/Growth").text);
 		}
 
-		timeLeft = (int)GrowthData ["times"] [growthIndex];
+		timeLeft = (int)GrowthData ["data"] [growthIndex] ["time"];
 		
 		StartCoroutine (grow ());
 
@@ -54,7 +78,14 @@ public class Pawn : MonoBehaviour
 		UISpriteAnimation spriteAnimation = gameObject.AddComponent<UISpriteAnimation> ();
 		UISprite sprite = gameObject.GetComponent<UISprite> ();
 		sprite.atlas = Game.Instance ().UIAtlasPawn;
-		spriteAnimation.namePrefix = (string)GrowthData ["sprites"] [growthIndex];
+
+		GrowthData ["data"] [growthIndex] ["sprites"].SetJsonType (JsonType.Array);
+		if (GrowthData ["data"] [growthIndex] ["sprites"].Count == 1) {
+			spriteAnimation.namePrefix = (string)GrowthData ["data"] [growthIndex] ["sprites"] [0];
+		} else {
+			spriteAnimation.namePrefix = (string)GrowthData ["data"] [growthIndex] ["sprites"] [Random.Range (0, GrowthData ["data"] [growthIndex] ["sprites"].Count)];
+		}
+
 		spriteAnimation.framesPerSecond = 4;
 
 		if (speed.x < 0) {
@@ -143,6 +174,9 @@ public class Pawn : MonoBehaviour
 
 				punch ();
 
+				if (growthIndex > 0 && pawn.growthIndex > 0) {
+					StartCoroutine (MateManager.Mate ());
+				}
 			}
 		}
 
@@ -178,17 +212,9 @@ public class Pawn : MonoBehaviour
 		growthIndex++;
 
 		timeLeft = (int)GrowthData ["times"] [growthIndex];
-		GetComponent<UISpriteAnimation> ().namePrefix = (string)GrowthData ["sprites"] [growthIndex];
+		GetComponent<UISpriteAnimation> ().namePrefix = (string)GrowthData ["data"] [growthIndex] ["sprites"] [Random.Range (0, GrowthData ["sprites"] [growthIndex].Count)];
 
 		punch ();
 	}
 
-}
-
-public enum PawnRank
-{
-	C,
-	B,
-	A,
-	S
 }

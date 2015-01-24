@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BookButton : SimpleButton
+public class UpgradeButton : SimpleButton
 {
+
+	public Faculty faculty;
+
 	public override void Clicked ()
 	{
-		Debug.Log ("Book Button");
+
 	}
 }

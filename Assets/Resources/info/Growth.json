@@ -1,4 +1,28 @@
 {
-    "times": [1, -1],
-    "sprites": ["egg", "merman_"]
+    "data": [
+        {
+            "name": "egg",
+            "time": 10,
+            "sprites": [
+                "egg"
+            ],
+
+            "bound":
+            {
+                "x": 0,
+                "y": 0,
+                "width": 0,
+                "height": 0
+            }
+        },
+        
+        {
+            "name": "adult",
+            "time": -1,
+            "sprites": [
+                "merman_",
+                "pantyman_"
+            ]
+        }
+    ]
 }
