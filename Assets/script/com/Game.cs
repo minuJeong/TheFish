@@ -33,7 +33,11 @@ public class Game : MonoBehaviour
 
 	void Start ()
 	{
-		Pawn.SprayPawn (transform, 1);
-		Pawn.SprayPawn (transform, 1);
+		Pawn.SprayPawn (transform, 1, true);
+		Pawn.SprayPawn (transform, 1, true);
+		Pawn.SprayPawn (transform, 1, true);
+		Pawn.SprayPawn (transform, 1, true);
+		Pawn.SprayPawn (transform, 1, true);
+		Pawn.SprayPawn (transform, 1, true);
 	}
 }

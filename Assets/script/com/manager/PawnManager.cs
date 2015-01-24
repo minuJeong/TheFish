@@ -6,7 +6,7 @@ public class PawnManager
 {
 	// data
 	public List<Pawn> pawns = new List<Pawn> ();
-	public int MaxPawnCount = 3;
+	public int MaxPawnCount = 6;
 
 	public bool isPawnMax ()
 	{
@@ -16,6 +16,23 @@ public class PawnManager
 		return true;
 	}
 
+	public void SellPawn (Pawn pawn)
+	{
+		if (pawns.Count < 3) {
+			Debug.Log ("You have to leave at least 2 pawns");
+			return;
+		}
+
+		if (pawn.growthIndex > 0) {
+			GameObject.Destroy (pawn.gameObject, 0.1f);
+			pawns.Remove (pawn);
+
+			Game.Instance ().money += 100;
+
+			// TODO: register book
+		}
+	}
+	
 	// Singleton
 	private PawnManager ()
 	{

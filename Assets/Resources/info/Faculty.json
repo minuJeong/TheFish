@@ -1,5 +1,23 @@
 {
-	"tank" : {},
-	"filter" : {},
-	"warmer" : {}
+    "tank": {
+        "base_price": 100,
+        "price_increment": 10,
+        "price_multipliment": 1.1,
+        "effect": 1,
+        "sprite": "facility_image_tank_"
+    },
+    "filter": {
+        "base_price": 100,
+        "price_increment": 10,
+        "price_multipliment": 1.1,
+        "effect": 1,
+        "sprite": "facility_image_tank_"
+    },
+    "warmer": {
+        "base_price": 100,
+        "price_increment": 10,
+        "price_multipliment": 1.1,
+        "effect": 1,
+        "sprite": "facility_image_tank_"
+    }
 }
