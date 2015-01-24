@@ -1,0 +1,35 @@
+{
+    "basic_info": {
+        "imagePrefix": "facility_image_filter_",
+        "priceMultiplier": 1.52,
+        "maxLevel": 15,
+        "percentageMultiplier": {
+            "S": "square",
+            "A": "linear",
+            "B": "linear",
+            "C": "linear"
+        }
+    },
+    "level_info": [
+        {
+            "level": 0,
+            "price": 0,
+            "percentage": {
+                "S": 0.0,
+                "A": 0.0,
+                "B": 0.0,
+                "C": 0.0
+            }
+        },
+        {
+            "level": 1,
+            "price": 100000,
+            "percentage": {
+                "S": 0.01,
+                "A": 1.0,
+                "B": 2.0,
+                "C": 3.0
+            }
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "basic_info": {
+        "imagePrefix": "facility_image_tank_",
+        "priceMultiplier" :  1.7,
+        "maxFishCountMultiplier": 1.2,
+        "maxLevel": 15
+    },
+    "level_info": [
+        {
+            "level": 0,
+            "price": 0,
+            "maxFishCount": 4
+        },
+        {
+            "level": 1,
+            "price": 20000,
+            "maxFishCount": 5
+        }
+    ]
+}

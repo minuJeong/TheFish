@@ -47,6 +47,10 @@ public class Game : MonoBehaviour
             .GetComponent<BookUI>()
             .Init(book);
 
+        Heater2.Instance().Init();
+        Tank2.Instance().Init();
+        Filter2.Instance().Init();
+
 		Pawn.SprayPawn (transform, 1, true);
 		Pawn.SprayPawn (transform, 1, true);
 		Pawn.SprayPawn (transform, 1, true);

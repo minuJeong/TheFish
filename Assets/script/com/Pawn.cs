@@ -5,10 +5,12 @@ using System.Collections.Generic;
 
 public enum PawnRank
 {
+    LOWEST = 1,
+    D = LOWEST,
 	C,
 	B,
 	A,
-	S
+    S,
 }
 
 public class PawnInfo
