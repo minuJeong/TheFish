@@ -6,28 +6,24 @@ public class ParticleSpray : MonoBehaviour
 {
 
 	private Dictionary<string, GameObject> pool = new Dictionary<string, GameObject> ();
-	private static ParticleSpray _instance = null;
+	public static ParticleSpray Instance;
 	private static bool _block = false;
 
-	public void Start ()
+	public void Awake ()
 	{
-		if (null == _instance) {
-			_instance = this;
+		if (null == ParticleSpray.Instance) {
+			Debug.Log (this);
+			ParticleSpray.Instance = this;
 		}
 	}
 
-	private void LateUpdate ()
-	{
-		_block = false;
-	}
-
-	public static void Spray (string efxName, Vector2 position)
+	public void Spray (string efxName, Vector2 position)
 	{
 		if (_block) {
 			return;
 		}
-		return;
-		if (! _instance.pool.ContainsKey (efxName)) {
+
+		if (! pool.ContainsKey (efxName)) {
 			GameObject efx = Resources.Load<GameObject> ("sfx/prefabs/" + efxName);
 
 			if (efx == null) {
@@ -35,19 +31,28 @@ public class ParticleSpray : MonoBehaviour
 				return;
 			}
 
-			_instance.pool.Add (efxName, efx);
+			pool.Add (efxName, efx);
 
-			GameObject temp = _instance.pool [efxName];
-
-			Debug.Log (temp);
-		} else {
-			Debug.Log ("_d_d_");
+			GameObject temp = pool [efxName];
 		}
 
-		GameObject toSpray = (GameObject)Instantiate (_instance.pool [efxName]);
+		GameObject toSpray = (GameObject)Instantiate (pool [efxName]);
 		toSpray.transform.position = new Vector3 (position.x, position.y, 0);
 
 		toSpray.AddComponent<Evaporation> ();
-		_block = true;
+
+		StartCoroutine (SetBlockForSeconds (0.5f));
+	}
+
+	private IEnumerator SetBlockForSeconds (float time)
+	{
+		float startTime = Time.time;
+
+		while (Time.time - startTime < time) {
+			_block = true;
+			yield return 0;
+		}
+
+		_block = false;
 	}
 }

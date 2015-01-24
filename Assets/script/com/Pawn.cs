@@ -5,11 +5,11 @@ using System.Collections.Generic;
 
 public enum PawnRank
 {
-    D = 1,
+	D = 1,
 	C,
 	B,
 	A,
-    S,
+	S,
 }
 
 public class PawnInfo
@@ -43,16 +43,11 @@ public class Pawn : MonoBehaviour
 		return pawn;
 	}
 
-	public static Pawn SprayPawn (Transform parent_transform, Vector3 localPosition)
-	{
-		Pawn pawn = SprayPawn ();
-		if (null == pawn) {
-			return null;
-		}
-		
-		pawn.transform.localPosition = localPosition;
-		return pawn;
-	}
+	// DO NOT USE THIS METHOD YET
+//	public static Pawn SprayPawn (Transform parent_transform, Vector3 localPosition)
+//	{
+//
+//	}
 
 	public static Pawn SprayPawn (Transform parent_transform)
 	{
@@ -128,11 +123,13 @@ public class Pawn : MonoBehaviour
 			RankData = JsonMapper.ToObject (Resources.Load<TextAsset> ("info/RankRate").text);
 		}
 		//
-        timeLeft = Heater2.Instance().Level[FacilityManager.Instance().HeaterLevel].hatchTime;
+		timeLeft = Heater2.Instance ().Level [FacilityManager.Instance ().HeaterLevel].hatchTime;
 
 		CalculateRank ();
-		
-		StartCoroutine (grow ());
+
+		if (growthIndex == 0) {
+			StartCoroutine (grow ());
+		}
 
 		// add sprite component
 		UISpriteAnimation spriteAnimation = gameObject.AddComponent<UISpriteAnimation> ();
@@ -245,7 +242,9 @@ public class Pawn : MonoBehaviour
 
 				Vector3 center = (transform.position + pawn.transform.position) * .5F;
 
-//				ParticleSpray.Spray ("HeartEfx", new Vector2 (center.x, center.y));
+				if (growthIndex > 0 && pawn.growthIndex > 0) {
+					ParticleSpray.Instance.Spray ("HeartEfx", new Vector2 (center.x, center.y));
+				}
 			}
 		}
 
@@ -278,7 +277,7 @@ public class Pawn : MonoBehaviour
 
 		growthIndex++;
 
-        timeLeft = Heater2.Instance().Level[FacilityManager.Instance().HeaterLevel].hatchTime;
+		timeLeft = Heater2.Instance ().Level [FacilityManager.Instance ().HeaterLevel].hatchTime;
 		GetComponent<UISpriteAnimation> ().namePrefix = (string)GrowthData ["data"] [growthIndex] ["sprites"] [rankName] [Random.Range (0, GrowthData ["data"] [growthIndex] ["sprites"] [rankName].Count)];
 
 		punch ();
@@ -286,33 +285,29 @@ public class Pawn : MonoBehaviour
 
 	private void CalculateRank ()
 	{
-        PawnRank rank = PawnRank.D;
+		PawnRank rank = PawnRank.D;
 
-        var curInfo = Filter2.Instance().Level[FacilityManager.Instance().FilterLevel];
-        float dice = Random.Range(0.0f, 100.0f);
+		var curInfo = Filter2.Instance ().Level [FacilityManager.Instance ().FilterLevel];
+		float dice = Random.Range (0.0f, 100.0f);
 
-        float sum = 0.0f;
-        for (var i = 0; i < curInfo.percentage.Length; ++i)
-        {
-            PawnRank currentRank = i + PawnRank.D;
-            if(PawnManager.Instance().IsRankAvailable(currentRank) == false)
-            {
-                rank = (PawnRank)System.Math.Max((int)currentRank - 1, (int)PawnRank.D);
-                break;
-            }
+		float sum = 0.0f;
+		for (var i = 0; i < curInfo.percentage.Length; ++i) {
+			PawnRank currentRank = i + PawnRank.D;
+			if (PawnManager.Instance ().IsRankAvailable (currentRank) == false) {
+				rank = (PawnRank)System.Math.Max ((int)currentRank - 1, (int)PawnRank.D);
+				break;
+			}
 
-            float percentage = (float)curInfo.percentage[i];
-            if(sum <= dice && dice <= sum + percentage)
-            {
-                rank = currentRank;
-                break;
-            }
+			float percentage = (float)curInfo.percentage [i];
+			if (sum <= dice && dice <= sum + percentage) {
+				rank = currentRank;
+				break;
+			}
 
-            sum += percentage;
-        }
+			sum += percentage;
+		}
 
-        rankName = rank.ToString();
-        Debug.Log(rankName);
+		rankName = rank.ToString ();
 	}
 
 }

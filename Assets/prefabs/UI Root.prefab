@@ -3459,13 +3459,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cef00caf1abad41089624a53185d49a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  faculty:
-    FacultyName: 
-    price: 0
-    price_increment: 0
-    price_multipliment: 0
-    level: 0
-    label: {fileID: 11430906}
 --- !u!114 &11430892
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3847,13 +3840,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a872b5180865949d19cfe68d5af433f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  faculty:
-    FacultyName: 
-    price: 0
-    price_increment: 0
-    price_multipliment: 0
-    level: 0
-    label: {fileID: 11430894}
 --- !u!114 &11430912
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4243,13 +4229,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0f5fad06b32343e8aba8e704626edfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  faculty:
-    FacultyName: 
-    price: 0
-    price_increment: 0
-    price_multipliment: 0
-    level: 0
-    label: {fileID: 11430868}
 --- !u!114 &11430932
 MonoBehaviour:
   m_ObjectHideFlags: 1
