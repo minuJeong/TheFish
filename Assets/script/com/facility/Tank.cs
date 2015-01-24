@@ -71,10 +71,16 @@ public class Tank2
 
         for (int i = 2; i <= basicInfo.maxLevel; ++i)
         {
+            double finalMultiplier = 1.0f;
+            for (int j = 0; j < i; ++j)
+            {
+                finalMultiplier *= basicInfo.maxFishCountMultiplier;
+            }
+
             var info = new LevelInfo();
             info.level = i;
             info.price = ((int)(basicInfo.priceMultiplier * levelInfo[i - 1].price) / 1000) * 1000;
-            info.maxFishCount = (int)basicInfo.maxFishCountMultiplier * levelInfo[i - 1].maxFishCount;
+            info.maxFishCount = (int)Math.Round(finalMultiplier * levelInfo[0].maxFishCount);
 
             levelInfo[i] = info;
         }
