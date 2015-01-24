@@ -31,6 +31,15 @@ public class PawnManager
 
 
 			Game.Instance ().money += (int)PriceData [pawn.rankName];
+
+			// Register book
+			foreach (var pair in Game.Instance ().Book.PawnInfoList) {
+                var pawnInfo = pair.Value;
+				if (pawn.name == pawnInfo.name &&
+					Game.Instance ().Book.UnlockedList.ContainsKey(pawnInfo.index) == false) {
+					Game.Instance ().Book.Unlock (pawnInfo.index);
+				}
+			}
 		}
 	}
 	
