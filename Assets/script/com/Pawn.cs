@@ -13,7 +13,7 @@ public enum PawnRank
 
 public class PawnInfo
 {
-    public int index;
+	public int index;
 	public string name;
 	public PawnRank rank;
 }
@@ -110,9 +110,12 @@ public class Pawn : MonoBehaviour
 		// load data
 		if (null == GrowthData) {
 			GrowthData = JsonMapper.ToObject (Resources.Load<TextAsset> ("info/Growth").text);
-			RankData = JsonMapper.ToObject (Resources.Load<TextAsset> ("info/RankRate").text);
+
 		}
 
+		if (null == RankData) {
+			RankData = JsonMapper.ToObject (Resources.Load<TextAsset> ("info/RankRate").text);
+		}
 		//
 		timeLeft = (int)GrowthData ["data"] [growthIndex] ["time"];
 

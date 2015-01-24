@@ -7,6 +7,7 @@ using LitJson;
 
 public class Book
 {
+
     private class JsonPawnInfo
     {
         public string name;
