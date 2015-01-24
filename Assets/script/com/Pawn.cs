@@ -242,6 +242,10 @@ public class Pawn : MonoBehaviour
 				if (growthIndex > 0 && pawn.growthIndex > 0) {
 					StartCoroutine (MateManager.Mate ());
 				}
+
+				Vector3 center = (transform.position + pawn.transform.position) * .5F;
+
+				ParticleSpray.Spray ("HeartEfx", new Vector2 (center.x, center.y));
 			}
 		}
 
