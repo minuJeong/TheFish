@@ -2,7 +2,6 @@
     "data": [
         {
             "name": "egg",
-            "time": 10,
             "sprites": {
                 "C": [
                     "egg_"
@@ -26,7 +25,6 @@
         },
         {
             "name": "adult",
-            "time": -1,
             "sprites": {
                 "C": [
                     "pantyman_",
