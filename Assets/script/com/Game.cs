@@ -21,8 +21,14 @@ public class Game : MonoBehaviour
 	public Camera UICamera;
 	public Rect GameArea;
 
+    // private
+    private Book book = new Book();
+
 	// publc
 	public int money = 0;
+
+    // property
+    public Book Book { get { return book; } }
 
 	// Use this for initialization
 	void Awake ()
@@ -33,6 +39,8 @@ public class Game : MonoBehaviour
 
 	void Start ()
 	{
+        book.Init();
+
 		Pawn.SprayPawn (transform, 1);
 		Pawn.SprayPawn (transform, 1);
 	}
