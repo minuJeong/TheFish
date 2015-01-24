@@ -275,6 +275,25 @@ public class Pawn : MonoBehaviour
 
 		yield return new WaitForSeconds ((float)timeLeft);
 
+        switch(rankName)
+        {
+            case "S":
+                {
+                    SoundManager.Instance().Play("hatch_s");
+                }
+                break;
+            case "A":
+                {
+                    SoundManager.Instance().Play("hatch_a");
+                }
+                break;
+            default:
+                {
+                    SoundManager.Instance().Play("hatch_normal");
+                }
+                break;
+        }
+
 		growthIndex++;
 
 		timeLeft = Heater2.Instance ().Level [FacilityManager.Instance ().HeaterLevel].hatchTime;
