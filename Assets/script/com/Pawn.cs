@@ -147,13 +147,11 @@ public class Pawn : MonoBehaviour
 		boundRect = Game.Instance ().GameArea;
 		boundRect.x += sprite.width / 2;
 		boundRect.y += sprite.height / 2;
-		boundRect.width -= sprite.width * 2;
+		boundRect.width -= sprite.width;
 		boundRect.height -= sprite.height;
 
 		float _x = Random.value * boundRect.width + boundRect.x;
-//		float _y = Random.value * boundRect.height + boundRect.y;
-
-		float _y = boundRect.y + boundRect.height * Random.Range (0.1f, 0.3f);
+		float _y = Random.value * boundRect.height + boundRect.y;
 		
 		transform.localPosition = new Vector3 (_x, _y, 0f);
 
@@ -171,6 +169,8 @@ public class Pawn : MonoBehaviour
 		if (Random.value < .5f) {
 			speed.y *= -1;
 		}
+
+		punch ();
 	}
 
 	private void Update ()

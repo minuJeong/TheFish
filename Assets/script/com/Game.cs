@@ -50,8 +50,5 @@ public class Game : MonoBehaviour
 		Pawn.SprayPawn (transform, 1, true);
 		Pawn.SprayPawn (transform, 1, true);
 		Pawn.SprayPawn (transform, 1, true);
-		Pawn.SprayPawn (transform, 1, true);
-		Pawn.SprayPawn (transform, 1, true);
-		Pawn.SprayPawn (transform, 1, true);
 	}
 }

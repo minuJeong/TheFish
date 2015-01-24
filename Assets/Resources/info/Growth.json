@@ -5,16 +5,16 @@
             "time": 10,
             "sprites": {
                 "C": [
-                    "egg"
+                    "egg_"
                 ],
                 "B": [
-                    "egg"
+                    "egg_"
                 ],
                 "A": [
-                    "egg"
+                    "egg_"
                 ],
                 "S": [
-                    "egg"
+                    "egg_"
                 ]
             },
             "bound": {
@@ -29,24 +29,22 @@
             "time": -1,
             "sprites": {
                 "C": [
-                    "merman_",
                     "pantyman_",
-                    "bubblepantyman_"
+                    "bubblepantyman_",
+                    "merman_",
+                    "eeman_",
+                    "cherryswimmer_",
+                    "dashedlinedwoman_"
                 ],
                 "B": [
-                    "merman_",
-                    "pantyman_",
                     "cherryswimmer_"
                 ],
                 "A": [
-                    "merman_",
-                    "pantyman_",
                     "dashedlinedwoman_"
                 ],
                 "S": [
                     "merman_",
-                    "pantyman_",
-                    "e"
+                    "eeman_"
                 ]
             },
             "bound": {

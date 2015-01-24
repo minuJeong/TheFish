@@ -341,7 +341,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &130894
 GameObject:
   m_ObjectHideFlags: 1
@@ -658,7 +658,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &130932
 GameObject:
   m_ObjectHideFlags: 1
@@ -1489,7 +1489,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 149494}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 270, y: 195, z: 0}
+  m_LocalPosition: {x: 291, y: -483, z: 0}
   m_LocalScale: {x: .287639499, y: .287639499, z: .287639499}
   m_Children: []
   m_Father: {fileID: 430952}
@@ -1552,7 +1552,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 178632}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -114, z: 0}
+  m_LocalPosition: {x: 0, y: -115, z: 0}
   m_LocalScale: {x: .930999994, y: .930999756, z: .930999756}
   m_Children: []
   m_Father: {fileID: 424002}
@@ -2371,7 +2371,7 @@ MonoBehaviour:
   mPivot: 1
   mWidth: 308
   mHeight: 169
-  mDepth: 6
+  mDepth: 155
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
@@ -2666,7 +2666,7 @@ MonoBehaviour:
   mPivot: 4
   mWidth: 404
   mHeight: 230
-  mDepth: 5
+  mDepth: 151
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
@@ -2965,13 +2965,13 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3003
+  startingRenderQueue: 3006
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
   mClipRange: {x: 0, y: 18, z: 648, w: 1032}
   mClipSoftness: {x: 4, y: 4}
-  mDepth: 152
+  mDepth: 505
   mSortingOrder: 0
   mClipOffset: {x: 0, y: 2}
 --- !u!114 &11430874
@@ -3060,13 +3060,13 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3002
+  startingRenderQueue: 3007
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 3
   mClipRange: {x: 0, y: 74, z: 620, w: 886}
   mClipSoftness: {x: 4, y: 4}
-  mDepth: 56
+  mDepth: 563
   mSortingOrder: 0
   mClipOffset: {x: 0, y: 0}
 --- !u!114 &11430878
@@ -3501,13 +3501,13 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3002
+  startingRenderQueue: 3007
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 3
   mClipRange: {x: 0, y: 74, z: 620, w: 886}
   mClipSoftness: {x: 4, y: 4}
-  mDepth: 56
+  mDepth: 560
   mSortingOrder: 0
   mClipOffset: {x: 0, y: 0}
 --- !u!114 &11430900
@@ -3523,8 +3523,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 430898}
   panelRegion: {fileID: 11430898}
-  scrollMomentum: {x: 0, y: 0, z: 0}
-  restrictWithinPanel: 1
+  scrollMomentum: {x: 0, y: .100000001, z: 0}
+  restrictWithinPanel: 0
   contentRect: {fileID: 11430898}
   dragEffect: 2
   momentumAmount: 35
@@ -3566,13 +3566,13 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3004
+  startingRenderQueue: 3008
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 300, w: 200}
   mClipSoftness: {x: 4, y: 4}
-  mDepth: 160
+  mDepth: 575
   mSortingOrder: 0
   mClipOffset: {x: 0, y: 0}
 --- !u!114 &11430904
@@ -3992,13 +3992,13 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3001
+  startingRenderQueue: 3005
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
   mClipRange: {x: 0, y: 18, z: 648, w: 1032}
   mClipSoftness: {x: 4, y: 4}
-  mDepth: 50
+  mDepth: 500
   mSortingOrder: 0
   mClipOffset: {x: 0, y: 2}
 --- !u!114 &11430926
@@ -4170,13 +4170,13 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3002
+  startingRenderQueue: 3007
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 300, w: 200}
   mClipSoftness: {x: 4, y: 4}
-  mDepth: 160
+  mDepth: 570
   mSortingOrder: 0
   mClipOffset: {x: 0, y: 0}
 --- !u!114 &11430936
@@ -4192,8 +4192,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 430924}
   panelRegion: {fileID: 11430876}
-  scrollMomentum: {x: 0, y: 0, z: 0}
-  restrictWithinPanel: 1
+  scrollMomentum: {x: 0, y: .100000001, z: 0}
+  restrictWithinPanel: 0
   contentRect: {fileID: 11430876}
   dragEffect: 2
   momentumAmount: 35
@@ -4400,7 +4400,7 @@ MonoBehaviour:
   mPivot: 4
   mWidth: 252
   mHeight: 252
-  mDepth: 100
+  mDepth: 50
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
@@ -4671,12 +4671,12 @@ MonoBehaviour:
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
   mWidth: 730
-  mHeight: 890
+  mHeight: 888
   mDepth: 138
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: .820224702
+  aspectRatio: .822072089
   mType: 0
   mFillDirection: 4
   mFillAmount: 1

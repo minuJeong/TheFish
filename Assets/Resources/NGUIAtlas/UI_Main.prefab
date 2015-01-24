@@ -56,7 +56,7 @@ MonoBehaviour:
     paddingBottom: 6
   - name: button_Book
     x: 2054
-    y: 936
+    y: 1029
     width: 188
     height: 102
     borderLeft: 0
@@ -68,45 +68,6 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: button_Book_Pressed
-    x: 1721
-    y: 1429
-    width: 226
-    height: 123
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: button_close
-    x: 1866
-    y: 581
-    width: 135
-    height: 107
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: button_Facility
-    x: 2054
-    y: 1039
-    width: 188
-    height: 102
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: button_Faculty_Pressed
     x: 3485
     y: 1748
     width: 226
@@ -119,9 +80,22 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: button_Sell
-    x: 1451
-    y: 89
+  - name: button_close
+    x: 1866
+    y: 531
+    width: 135
+    height: 107
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: button_Facility
+    x: 2054
+    y: 1132
     width: 188
     height: 102
     borderLeft: 0
@@ -132,7 +106,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: button_Sell_Pressed
+  - name: button_Faculty_Pressed
     x: 3712
     y: 1748
     width: 226
@@ -145,9 +119,35 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: button_Sell
+    x: 2054
+    y: 1235
+    width: 188
+    height: 102
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: button_Sell_Pressed
+    x: 2249
+    y: 1606
+    width: 226
+    height: 123
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: button_template
-    x: 3436
-    y: 1875
+    x: 1721
+    y: 1379
     width: 305
     height: 80
     borderLeft: 0
@@ -159,7 +159,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: button_upgrade
-    x: 3742
+    x: 3436
     y: 1901
     width: 313
     height: 54
@@ -185,7 +185,7 @@ MonoBehaviour:
     paddingTop: 12
     paddingBottom: 10
   - name: Facebook_F
-    x: 1697
+    x: 1722
     y: 912
     width: 251
     height: 251
@@ -199,7 +199,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: facility_image_filter_1
     x: 2054
-    y: 1142
+    y: 1338
     width: 194
     height: 195
     borderLeft: 0
@@ -212,19 +212,6 @@ MonoBehaviour:
     paddingBottom: 0
   - name: facility_image_filter_2
     x: 2054
-    y: 1338
-    width: 194
-    height: 195
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: facility_image_filter_3
-    x: 2054
     y: 1534
     width: 194
     height: 195
@@ -236,9 +223,22 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: facility_image_filter_3
+    x: 1841
+    y: 7
+    width: 194
+    height: 195
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: facility_image_tank_1
-    x: 1843
-    y: 57
+    x: 1841
+    y: 203
     width: 194
     height: 195
     borderLeft: 0
@@ -250,8 +250,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: facility_image_tank_2
-    x: 1648
-    y: 57
+    x: 1646
+    y: 7
     width: 194
     height: 195
     borderLeft: 0
@@ -263,8 +263,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: facility_image_tank_3
-    x: 1843
-    y: 253
+    x: 1646
+    y: 203
     width: 194
     height: 195
     borderLeft: 0
@@ -276,8 +276,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: facility_image_warmer_1
-    x: 1648
-    y: 253
+    x: 1451
+    y: 7
     width: 194
     height: 195
     borderLeft: 0
@@ -289,8 +289,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: facility_image_warmer_2
-    x: 1671
-    y: 493
+    x: 1451
+    y: 203
     width: 194
     height: 195
     borderLeft: 0
@@ -302,8 +302,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: facility_image_warmer_3
-    x: 1740
-    y: 704
+    x: 1671
+    y: 443
     width: 194
     height: 195
     borderLeft: 0
@@ -341,8 +341,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: filter_1
-    x: 1451
-    y: 689
+    x: 1697
+    y: 692
     width: 288
     height: 210
     borderLeft: 0
@@ -355,7 +355,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: filter_2
     x: 1451
-    y: 449
+    y: 399
     width: 219
     height: 239
     borderLeft: 0
@@ -368,7 +368,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: filter_3
     x: 1451
-    y: 900
+    y: 639
     width: 245
     height: 263
     borderLeft: 0
@@ -380,8 +380,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: filter_4
-    x: 1721
-    y: 1553
+    x: 1451
+    y: 903
     width: 270
     height: 260
     borderLeft: 0
@@ -484,18 +484,18 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: warmer_1
-    x: 1451
-    y: 192
-    width: 196
-    height: 256
+    x: 1721
+    y: 1460
+    width: 280
+    height: 353
     borderLeft: 0
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
+    paddingLeft: 13
+    paddingRight: 13
     paddingTop: 0
-    paddingBottom: 0
+    paddingBottom: 35
   - name: warmer_2
     x: 721
     y: 44
