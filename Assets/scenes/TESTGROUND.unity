@@ -1047,122 +1047,6 @@ MonoBehaviour:
   mDepth: 2
   mSortingOrder: 0
   mClipOffset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 424002, guid: ee8123bfc365345af9848242443055f6, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 424002, guid: ee8123bfc365345af9848242443055f6, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 424002, guid: ee8123bfc365345af9848242443055f6, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 424002, guid: ee8123bfc365345af9848242443055f6, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 424002, guid: ee8123bfc365345af9848242443055f6, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 424002, guid: ee8123bfc365345af9848242443055f6, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 424002, guid: ee8123bfc365345af9848242443055f6, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 424002, guid: ee8123bfc365345af9848242443055f6, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11423982, guid: ee8123bfc365345af9848242443055f6, type: 2}
-      propertyPath: mDepth
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 11423984, guid: ee8123bfc365345af9848242443055f6, type: 2}
-      propertyPath: mDepth
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 11423990, guid: ee8123bfc365345af9848242443055f6, type: 2}
-      propertyPath: mDepth
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 11423992, guid: ee8123bfc365345af9848242443055f6, type: 2}
-      propertyPath: mDepth
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 11423996, guid: ee8123bfc365345af9848242443055f6, type: 2}
-      propertyPath: mDepth
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 11423998, guid: ee8123bfc365345af9848242443055f6, type: 2}
-      propertyPath: mDepth
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11424000, guid: ee8123bfc365345af9848242443055f6, type: 2}
-      propertyPath: mDepth
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 11424002, guid: ee8123bfc365345af9848242443055f6, type: 2}
-      propertyPath: mDepth
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 11424008, guid: ee8123bfc365345af9848242443055f6, type: 2}
-      propertyPath: mDepth
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 11424010, guid: ee8123bfc365345af9848242443055f6, type: 2}
-      propertyPath: mDepth
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 11424014, guid: ee8123bfc365345af9848242443055f6, type: 2}
-      propertyPath: mDepth
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 11424022, guid: ee8123bfc365345af9848242443055f6, type: 2}
-      propertyPath: mDepth
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11424024, guid: ee8123bfc365345af9848242443055f6, type: 2}
-      propertyPath: mDepth
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11424026, guid: ee8123bfc365345af9848242443055f6, type: 2}
-      propertyPath: mDepth
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 11424028, guid: ee8123bfc365345af9848242443055f6, type: 2}
-      propertyPath: mDepth
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11424030, guid: ee8123bfc365345af9848242443055f6, type: 2}
-      propertyPath: mDepth
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 11434840, guid: ee8123bfc365345af9848242443055f6, type: 2}
-      propertyPath: Target
-      value: 
-      objectReference: {fileID: 691969626}
-    - target: {fileID: 11434838, guid: ee8123bfc365345af9848242443055f6, type: 2}
-      propertyPath: Target
-      value: 
-      objectReference: {fileID: 1979351819}
-    m_RemovedComponents:
-    - {fileID: 6167742, guid: ee8123bfc365345af9848242443055f6, type: 2}
-    - {fileID: 6167740, guid: ee8123bfc365345af9848242443055f6, type: 2}
-    - {fileID: 6167738, guid: ee8123bfc365345af9848242443055f6, type: 2}
-  m_ParentPrefab: {fileID: 100100000, guid: ee8123bfc365345af9848242443055f6, type: 2}
-  m_RootGameObject: {fileID: 1037603230}
-  m_IsPrefabParent: 0
-  m_IsExploded: 1
 --- !u!1 &554044007
 GameObject:
   m_ObjectHideFlags: 0
@@ -2892,7 +2776,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3002
+  startingRenderQueue: 3003
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -2997,7 +2881,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3002
+  startingRenderQueue: 3003
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 3
@@ -3535,6 +3419,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11434838, guid: ee8123bfc365345af9848242443055f6, type: 2}
+      propertyPath: Target
+      value: 
+      objectReference: {fileID: 1979351819}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ee8123bfc365345af9848242443055f6, type: 2}
   m_RootGameObject: {fileID: 1037603230}
@@ -4143,7 +4031,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1979351820
 Transform:
   m_ObjectHideFlags: 0
@@ -4195,7 +4083,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3001
+  startingRenderQueue: 3002
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
