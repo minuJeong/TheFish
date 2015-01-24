@@ -1,17 +1,21 @@
 [
     {
+        "index": 0,
         "name": "Pikachu",
         "rank": "S"
     },
     {
+        "index": 1,
         "name": "Raichu",
         "rank": "C"
     },
     {
+        "index": 2,
         "name": "Pichu",
         "rank": "C"
     },
     {
+        "index": 3,
         "name": "Mew",
         "rank": "S"
     }

@@ -10,21 +10,22 @@ public class Book
 
     private class JsonPawnInfo
     {
+        public int index;
         public string name;
         public string rank;
     }
 
-    private List<PawnInfo> pawnInfoList = new List<PawnInfo>();
-    private List<PawnInfo> unlockedList = new List<PawnInfo>();
+    private Dictionary<int, PawnInfo> pawnInfoList = new Dictionary<int, PawnInfo>();
+    private Dictionary<int, PawnInfo> unlockedList = new Dictionary<int, PawnInfo>();
 
-    public List<PawnInfo> PawnInfoList { get { return pawnInfoList; } }
-    public List<PawnInfo> UnlockedList { get { return unlockedList; } }
+    private string dbFilename;
 
-    // Use this for initialization
-    public void Init()
+    public Dictionary<int, PawnInfo> PawnInfoList { get { return pawnInfoList; } }
+    public Dictionary<int, PawnInfo> UnlockedList { get { return unlockedList; } }
+
+    private void LoadStaticData()
     {
-        string filename = Application.dataPath + "/Resources/info/" + "fish_list.json";
-        string txt = File.ReadAllText(filename);
+        string txt = Resources.Load<TextAsset>("info/fish_list").text;
         JsonReader reader = new JsonReader(txt);
 
         var people = JsonMapper.ToObject<JsonPawnInfo[]>(reader);
@@ -32,31 +33,86 @@ public class Book
         foreach (var person in people)
         {
             var info = new PawnInfo();
-            info.index = pawnInfoList.Count;
+            info.index = person.index;
             info.name = person.name;
             info.rank = (PawnRank)Enum.Parse(typeof(PawnRank), person.rank, true);
 
-            pawnInfoList.Add(info);
+            pawnInfoList.Add(info.index, info);
         }
+    }
+
+    private void LoadDB()
+    {
+        // DB data
+        dbFilename = Application.persistentDataPath + "/db/" + "fish_unlocked.json";
+        if (File.Exists(dbFilename) == false)
+        {
+            return;
+        }
+
+        var txt = File.ReadAllText(dbFilename);
+        if (txt.Length != 0)
+        {
+            var indices = JsonMapper.ToObject<int[]>(txt);
+            foreach (var index in indices)
+            {
+                PawnInfo info;
+                if (pawnInfoList.TryGetValue(index, out info) == false)
+                {
+                    Debug.LogError("Index " + index + "doesn't exist.");
+                    continue;
+                }
+
+                if (unlockedList.ContainsKey(index) == true)
+                {
+                    Debug.LogError("Index " + index + " already unlocked.");
+                    continue;
+                }
+
+                unlockedList.Add(index, info);
+            }
+        }
+    }
+
+    private void SaveToDB()
+    {
+        string dbStr = "[";
+
+        foreach (var pair in unlockedList)
+        {
+            var info = pair.Value;
+            dbStr += info.index + ", ";
+        }
+
+        dbStr += "]";
+
+        File.WriteAllText(dbFilename, dbStr);
+    }
+
+    // Use this for initialization
+    public void Init()
+    {
+        LoadStaticData();
+        LoadDB();
     }
 
     public void Unlock(int index)
     {
-        if(index >= pawnInfoList.Count)
+        PawnInfo info;
+        if (pawnInfoList.TryGetValue(index, out info) == false)
         {
-            Debug.LogError("Index {0} doesn't exist.");
+            Debug.LogError("Index " + index + " doesn't exist.");
             return;
         }
 
-        foreach (var unlockedInfo in unlockedList)
+        if (unlockedList.ContainsKey(index) == true)
         {
-            if (unlockedInfo.index == index)
-            {
-                Debug.LogError("Index {0} already unlocked");
-                return;
-            }
+            Debug.LogError("Index " + index + " already unlocked");
+            return;
         }
 
-        unlockedList.Add(pawnInfoList[index]);
+        unlockedList.Add(index, info);
+
+        SaveToDB();
     }
 }

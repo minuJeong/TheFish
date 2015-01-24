@@ -17,8 +17,10 @@ public class BookUI : MonoBehaviour
         grid = transform.FindChild("Clip").FindChild("Foreground").FindChild("grid").gameObject.GetComponent<UIGrid>();
         var item = grid.gameObject.transform.FindChild("item").gameObject;
 
-        foreach (var info in book.PawnInfoList)
+        foreach (var pair in book.PawnInfoList)
         {
+            var info = pair.Value;
+
             // Add item object
             var clone = (GameObject) UnityEngine.Object.Instantiate(item);
             clone.transform.parent = grid.gameObject.transform;
