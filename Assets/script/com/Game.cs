@@ -45,6 +45,10 @@ public class Game : MonoBehaviour
         Tank2.Instance().Init();
         Filter2.Instance().Init();
 
+//         FacilityManager.Instance().TankLevel = 15;
+//         FacilityManager.Instance().HeaterLevel = 15;
+//         FacilityManager.Instance().FilterLevel = 15;
+
         GameObject.Find("UI Root")
             .transform
             .FindChild("Book")
