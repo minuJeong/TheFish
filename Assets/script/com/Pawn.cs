@@ -5,10 +5,11 @@ using System.Collections.Generic;
 
 public enum PawnRank
 {
+    D = 1,
 	C,
 	B,
 	A,
-	S
+    S,
 }
 
 public class PawnInfo
@@ -94,7 +95,6 @@ public class Pawn : MonoBehaviour
 
 
 	// static data
-	public static float growthFactor = 1f;
 	public const int SPRAY_PAWN_DELAY = 10;
 	public static int sprayPawnDelay = SPRAY_PAWN_DELAY;
 	private static JsonData GrowthData = null;
@@ -106,7 +106,7 @@ public class Pawn : MonoBehaviour
 	public int rankFactor = 0;
 	public string rankName = "C";
 	public int growthIndex = 0;
-	public int timeLeft = 0;
+	public double timeLeft = 0.0;
 
 	// private data
 	private Rect boundRect;
@@ -128,9 +128,9 @@ public class Pawn : MonoBehaviour
 			RankData = JsonMapper.ToObject (Resources.Load<TextAsset> ("info/RankRate").text);
 		}
 		//
-		timeLeft = (int)GrowthData ["data"] [growthIndex] ["time"];
+        timeLeft = Heater2.Instance().Level[FacilityManager.Instance().HeaterLevel].hatchTime;
 
-		GetRank ();
+		CalculateRank ();
 		
 		StartCoroutine (grow ());
 
@@ -245,7 +245,7 @@ public class Pawn : MonoBehaviour
 
 				Vector3 center = (transform.position + pawn.transform.position) * .5F;
 
-				ParticleSpray.Spray ("HeartEfx", new Vector2 (center.x, center.y));
+//				ParticleSpray.Spray ("HeartEfx", new Vector2 (center.x, center.y));
 			}
 		}
 
@@ -274,53 +274,45 @@ public class Pawn : MonoBehaviour
 			yield break;
 		}
 
-		float time = (float)timeLeft / Pawn.growthFactor;
-
-		yield return new WaitForSeconds (timeLeft);
+		yield return new WaitForSeconds ((float)timeLeft);
 
 		growthIndex++;
 
-		timeLeft = (int)GrowthData ["data"] [growthIndex] ["time"];
+        timeLeft = Heater2.Instance().Level[FacilityManager.Instance().HeaterLevel].hatchTime;
 		GetComponent<UISpriteAnimation> ().namePrefix = (string)GrowthData ["data"] [growthIndex] ["sprites"] [rankName] [Random.Range (0, GrowthData ["data"] [growthIndex] ["sprites"] [rankName].Count)];
 
 		punch ();
 	}
 
-	private void GetRank ()
+	private void CalculateRank ()
 	{
-		rankName = "";
+        PawnRank rank = PawnRank.D;
 
-		RankData ["C"] [rankFactor].SetJsonType (JsonType.Double);
-		RankData ["B"] [rankFactor].SetJsonType (JsonType.Double);
-		RankData ["A"] [rankFactor].SetJsonType (JsonType.Double);
-		RankData ["S"] [rankFactor].SetJsonType (JsonType.Double);
+        var curInfo = Filter2.Instance().Level[FacilityManager.Instance().FilterLevel];
+        float dice = Random.Range(0.0f, 100.0f);
 
-		float rate_c = (float)((double)RankData ["C"] [rankFactor]);
-		float rate_b = (float)((double)RankData ["B"] [rankFactor]);
-		float rate_a = (float)((double)RankData ["A"] [rankFactor]);
-		float rate_s = (float)((double)RankData ["S"] [rankFactor]);
+        float sum = 0.0f;
+        for (var i = 0; i < curInfo.percentage.Length; ++i)
+        {
+            PawnRank currentRank = i + PawnRank.D;
+            if(PawnManager.Instance().IsRankAvailable(currentRank) == false)
+            {
+                rank = (PawnRank)System.Math.Max((int)currentRank - 1, (int)PawnRank.D);
+                break;
+            }
 
-		float dice = Random.Range (0, rate_c + rate_b + rate_a + rate_s);
+            float percentage = (float)curInfo.percentage[i];
+            if(sum <= dice && dice <= sum + percentage)
+            {
+                rank = currentRank;
+                break;
+            }
 
-		dice -= rate_c;
-		if (dice <= 0) {
-			rankName = "C";
-			return;
-		}
+            sum += percentage;
+        }
 
-		dice -= rate_b;
-		if (dice <= 0) {
-			rankName = "B";
-			return;
-		}
-
-		dice -= rate_a;
-		if (dice <= 0) {
-			rankName = "A";
-			return;
-		}
-
-		rankName = "S";
+        rankName = rank.ToString();
+        Debug.Log(rankName);
 	}
 
 }

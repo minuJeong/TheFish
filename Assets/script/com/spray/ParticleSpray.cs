@@ -26,7 +26,7 @@ public class ParticleSpray : MonoBehaviour
 		if (_block) {
 			return;
 		}
-
+		return;
 		if (! _instance.pool.ContainsKey (efxName)) {
 			GameObject efx = Resources.Load<GameObject> ("sfx/prefabs/" + efxName);
 

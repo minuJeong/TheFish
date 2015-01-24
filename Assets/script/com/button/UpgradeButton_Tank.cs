@@ -1,18 +1,15 @@
 using UnityEngine;
 using System.Collections;
 
-public class UpgradeButton_Tank : UpgradeButton
+public class UpgradeButton_Tank : SimpleButton
 {
-	private void Start ()
-	{
-		faculty = new Tank ();
-		faculty.label = transform.parent.GetComponentInChildren<UILabel> ();
-		faculty.UpdatePriceText ();
-	}
-	
 	public override void Clicked ()
 	{
-		faculty.Upgrade ();
+        GameObject.Find("UI Root")
+            .transform
+            .FindChild("Facilities")
+            .gameObject
+            .GetComponent<FacilityUI>()
+            .UpgradeTank();
 	}
-	
 }

@@ -6,6 +6,7 @@ public class PopulationDisplay : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-		GetComponent<UILabel> ().text = PawnManager.Instance ().pawns.Count + " / " + PawnManager.Instance ().MaxPawnCount;
+        int maxPawnCount = Tank2.Instance().Level[FacilityManager.Instance().TankLevel].maxFishCount;
+		GetComponent<UILabel> ().text = PawnManager.Instance ().pawns.Count + " / " + maxPawnCount;
 	}
 }

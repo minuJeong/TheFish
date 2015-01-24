@@ -1,18 +1,15 @@
 using UnityEngine;
 using System.Collections;
 
-public class UpgradeButton_Warmer : UpgradeButton
+public class UpgradeButton_Warmer : SimpleButton
 {
-	private void Start ()
-	{
-		faculty = new Warmer ();
-		faculty.label = transform.parent.GetComponentInChildren<UILabel> ();
-		faculty.UpdatePriceText ();
-	}
-	
-	public override void Clicked ()
-	{
-		faculty.Upgrade ();
-	}
-	
+    public override void Clicked()
+    {
+        GameObject.Find("UI Root")
+            .transform
+            .FindChild("Facilities")
+            .gameObject
+            .GetComponent<FacilityUI>()
+            .UpgradeHeater();
+    }
 }

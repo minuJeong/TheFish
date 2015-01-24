@@ -2,8 +2,10 @@
     "data": [
         {
             "name": "egg",
-            "time": 10,
             "sprites": {
+                "D": [
+                    "egg_"
+                ],
                 "C": [
                     "egg_"
                 ],
@@ -26,8 +28,15 @@
         },
         {
             "name": "adult",
-            "time": -1,
             "sprites": {
+                "D": [
+                    "pantyman_",
+                    "bubblepantyman_",
+                    "merman_",
+                    "eeman_",
+                    "cherryswimmer_",
+                    "dashedlinedwoman_"
+                ],
                 "C": [
                     "pantyman_",
                     "bubblepantyman_",
