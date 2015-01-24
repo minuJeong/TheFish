@@ -96,7 +96,6 @@ public class Pawn : MonoBehaviour
 
 
 	// static data
-	public static float growthFactor = 1f;
 	public const int SPRAY_PAWN_DELAY = 10;
 	public static int sprayPawnDelay = SPRAY_PAWN_DELAY;
 	private static JsonData GrowthData = null;
@@ -108,7 +107,7 @@ public class Pawn : MonoBehaviour
 	public int rankFactor = 0;
 	public string rankName = "C";
 	public int growthIndex = 0;
-	public int timeLeft = 0;
+	public double timeLeft = 0.0;
 
 	// private data
 	private Rect boundRect;
@@ -130,7 +129,7 @@ public class Pawn : MonoBehaviour
 			RankData = JsonMapper.ToObject (Resources.Load<TextAsset> ("info/RankRate").text);
 		}
 		//
-		timeLeft = (int)GrowthData ["data"] [growthIndex] ["time"];
+        timeLeft = Heater2.Instance().Level[FacilityManager.Instance().HeaterLevel].hatchTime;
 
 		GetRank ();
 		
@@ -272,13 +271,11 @@ public class Pawn : MonoBehaviour
 			yield break;
 		}
 
-		float time = (float)timeLeft / Pawn.growthFactor;
-
-		yield return new WaitForSeconds (timeLeft);
+		yield return new WaitForSeconds ((float)timeLeft);
 
 		growthIndex++;
 
-		timeLeft = (int)GrowthData ["data"] [growthIndex] ["time"];
+        timeLeft = Heater2.Instance().Level[FacilityManager.Instance().HeaterLevel].hatchTime;
 		GetComponent<UISpriteAnimation> ().namePrefix = (string)GrowthData ["data"] [growthIndex] ["sprites"] [rankName] [Random.Range (0, GrowthData ["data"] [growthIndex] ["sprites"] [rankName].Count)];
 
 		punch ();
