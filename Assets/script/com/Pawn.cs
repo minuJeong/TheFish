@@ -42,6 +42,17 @@ public class Pawn : MonoBehaviour
 		return pawn;
 	}
 
+	public static Pawn SprayPawn (Transform parent_transform, Vector3 localPosition)
+	{
+		Pawn pawn = SprayPawn ();
+		if (null == pawn) {
+			return null;
+		}
+		
+		pawn.transform.localPosition = localPosition;
+		return pawn;
+	}
+
 	public static Pawn SprayPawn (Transform parent_transform)
 	{
 		Pawn pawn = SprayPawn ();
@@ -152,7 +163,7 @@ public class Pawn : MonoBehaviour
 
 		float _x = Random.value * boundRect.width + boundRect.x;
 		float _y = Random.value * boundRect.height + boundRect.y;
-		
+
 		transform.localPosition = new Vector3 (_x, _y, 0f);
 
 		// add collider

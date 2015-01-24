@@ -1,20 +1,20 @@
 {
     "warmer": {
-        "base_price": 100000,
+        "base_price": 1000,
         "price_increment": 0,
         "price_multipliment": 1.4,
         "effect": 0.9,
         "sprite": "facility_image_warmer_"
     },
     "tank": {
-        "base_price": 100000,
+        "base_price": 1000,
         "price_increment": 0,
         "price_multipliment": 1.5,
         "effect": 1.2,
         "sprite": "facility_image_tank_"
     },
     "filter": {
-        "base_price": 100000,
+        "base_price": 1000,
         "price_increment": 0,
         "price_multipliment": 1.5,
         "effect": 1,
