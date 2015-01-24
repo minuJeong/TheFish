@@ -23,12 +23,15 @@ public class Game : MonoBehaviour
 
 	// private
 	private Book book = new Book ();
+	private StateSaveManager _saved;
 
 	// publc
 	public int money = 0;
 
 	// property
 	public Book Book { get { return book; } }
+
+	public StateSaveManager StateSaveManager { get { return _saved; } set { _saved = value; } }
 
 	// Use this for initialization
 	void Awake ()
@@ -39,14 +42,18 @@ public class Game : MonoBehaviour
 
 	void Start ()
 	{
+		Screen.sleepTimeout = SleepTimeout.NeverSleep;
+
 		book.Init ();
+		_saved.Load ();
+
 		Heater2.Instance ().Init ();
 		Tank2.Instance ().Init ();
 		Filter2.Instance ().Init ();
 
-//         FacilityManager.Instance().TankLevel = 15;
-//         FacilityManager.Instance().HeaterLevel = 15;
-//         FacilityManager.Instance().FilterLevel = 15;
+//      FacilityManager.Instance().TankLevel = 15;
+//      FacilityManager.Instance().HeaterLevel = 15;
+//      FacilityManager.Instance().FilterLevel = 15;
 
 		GameObject UI_Root = GameObject.Find ("UI Root");
         
@@ -64,5 +71,28 @@ public class Game : MonoBehaviour
 		Pawn.SprayPawn (transform, 1, true);
 		Pawn.SprayPawn (transform, 1, true);
 		Pawn.SprayPawn (transform, 1, true);
+
+		StartCoroutine (HomeKeyInput ());
+	}
+
+	IEnumerator HomeKeyInput ()
+	{
+		while (true) {
+			if (Application.platform == RuntimePlatform.Android) {
+				if (Input.GetKey (KeyCode.Home)) {
+					_saved.Save ();
+					yield return new WaitForSeconds (3f); // wait for next savable frame
+				}
+
+				yield return 0; // wait for next frame
+			} else {
+				yield break; // ends coroutine
+			}
+		}
+	}
+
+	void OnApplicationExit ()
+	{
+		_saved.Save ();
 	}
 }

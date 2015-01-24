@@ -108,7 +108,7 @@ public class Pawn : MonoBehaviour
 	public int rankFactor = 0;
 	public string rankName = "C";
 	public int growthIndex = 0;
-	public double timeLeft = 0.0;
+	public double hatchTimeLeft = 0.0;
 	[HideInInspector]
 	public bool
 		isSetPosition = false;
@@ -133,7 +133,7 @@ public class Pawn : MonoBehaviour
 			RankData = JsonMapper.ToObject (Resources.Load<TextAsset> ("info/RankRate").text);
 		}
 		//
-		timeLeft = Heater2.Instance ().Level [FacilityManager.Instance ().HeaterLevel].hatchTime;
+		hatchTimeLeft = Heater2.Instance ().Level [FacilityManager.Instance ().HeaterLevel].hatchTime;
 
 		CalculateRank ();
 
@@ -168,6 +168,8 @@ public class Pawn : MonoBehaviour
 		boundRect.width -= sprite.width;
 		boundRect.height -= sprite.height;
 
+
+		// turn on isSetPosition when manually set position
 		if (! isSetPosition) {
 
 			float _x = Random.value * boundRect.width + boundRect.x;
@@ -287,11 +289,11 @@ public class Pawn : MonoBehaviour
 
 	private IEnumerator grow ()
 	{
-		if (timeLeft < 0) {
+		if (hatchTimeLeft < 0) {
 			yield break;
 		}
 
-		yield return new WaitForSeconds ((float)timeLeft);
+		yield return new WaitForSeconds ((float)hatchTimeLeft);
 
 		switch (rankName) {
 		case "S":
@@ -313,7 +315,7 @@ public class Pawn : MonoBehaviour
 
 		growthIndex++;
 
-		timeLeft = Heater2.Instance ().Level [FacilityManager.Instance ().HeaterLevel].hatchTime;
+		hatchTimeLeft = Heater2.Instance ().Level [FacilityManager.Instance ().HeaterLevel].hatchTime;
 		GetComponent<UISpriteAnimation> ().namePrefix = (string)GrowthData ["data"] [growthIndex] ["sprites"] [rankName] [Random.Range (0, GrowthData ["data"] [growthIndex] ["sprites"] [rankName].Count)];
 
 		punch ();

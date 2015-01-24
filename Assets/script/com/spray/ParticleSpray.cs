@@ -14,7 +14,6 @@ public class ParticleSpray : MonoBehaviour
 	public void Awake ()
 	{
 		if (null == ParticleSpray.Instance) {
-			Debug.Log (this);
 			ParticleSpray.Instance = this;
 		}
 	}
