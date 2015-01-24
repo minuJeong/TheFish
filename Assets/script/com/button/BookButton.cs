@@ -3,11 +3,18 @@ using System.Collections;
 
 public class BookButton : SimpleButton
 {
-	// should set in Unity Editor
-	public GameObject Target;
+    public GameObject Target;
 
-	public override void Clicked ()
-	{
-		Debug.Log ("Book Button");
-	}
+    public override void Clicked()
+    {
+        if (Target.activeSelf)
+        {
+            Target.SetActive(false);
+        }
+        else
+        {
+            Target.transform.localPosition = new Vector3(0, 0, 0);
+            Target.SetActive(true);
+        }
+    }
 }
