@@ -147,11 +147,14 @@ public class Pawn : MonoBehaviour
 		UISprite sprite = gameObject.GetComponent<UISprite> ();
 		sprite.atlas = Game.Instance ().UIAtlasPawn;
 
-		if (GrowthData ["data"] [growthIndex] ["sprites"].Count == 1) {
-			spriteAnimation.namePrefix = (string)GrowthData ["data"] [growthIndex] ["sprites"] [rankName] [0];
-		} else {
-			spriteAnimation.namePrefix = (string)GrowthData ["data"] [growthIndex] ["sprites"] [rankName] [Random.Range (0, GrowthData ["data"] [growthIndex] ["sprites"] [rankName].Count)];
-		}
+        if(growthIndex == 0)
+        {
+            spriteAnimation.namePrefix = "egg_";
+        }
+        else
+        {
+            spriteAnimation.namePrefix = info.name;
+        }
 
 		spriteAnimation.framesPerSecond = 6;
 
@@ -315,7 +318,7 @@ public class Pawn : MonoBehaviour
 		growthIndex++;
 
 		timeLeft = Heater2.Instance ().Level [FacilityManager.Instance ().HeaterLevel].hatchTime;
-		GetComponent<UISpriteAnimation> ().namePrefix = (string)GrowthData ["data"] [growthIndex] ["sprites"] [rankName] [Random.Range (0, GrowthData ["data"] [growthIndex] ["sprites"] [rankName].Count)];
+        GetComponent<UISpriteAnimation>().namePrefix = info.name;
 
 		punch ();
 	}
