@@ -111,6 +111,7 @@ public class Book
             return;
         }
 
+        SoundManager.Instance().Play("book_register");
         unlockedList.Add(index, info);
 
         SaveToDB();

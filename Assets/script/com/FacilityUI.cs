@@ -29,6 +29,7 @@ public class FacilityUI : MonoBehaviour
         {
             case FacilityUpgradeResult.Success:
                 {
+                    SoundManager.Instance().Play("upgrade_facility");
                     UpdateTank();
                 }
                 break;
@@ -52,6 +53,7 @@ public class FacilityUI : MonoBehaviour
         {
             case FacilityUpgradeResult.Success:
                 {
+                    SoundManager.Instance().Play("upgrade_facility");
                     UpdateFilter();
                 }
                 break;
@@ -75,6 +77,7 @@ public class FacilityUI : MonoBehaviour
         {
             case FacilityUpgradeResult.Success:
                 {
+                    SoundManager.Instance().Play("upgrade_facility");
                     UpdateHeater();
                 }
                 break;

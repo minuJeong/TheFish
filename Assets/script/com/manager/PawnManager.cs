@@ -29,6 +29,7 @@ public class PawnManager
 
         if (pawn.growthIndex > 0)
         {
+            SoundManager.Instance().Play("sell");
             GameObject.Destroy(pawn.gameObject, 0.1f);
             pawns.Remove(pawn);
 
