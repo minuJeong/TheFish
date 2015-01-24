@@ -6,6 +6,8 @@ public class ParticleSpray : MonoBehaviour
 {
 
 	private Dictionary<string, GameObject> pool = new Dictionary<string, GameObject> ();
+	public Transform efxTransform; // should set in Unity Editor
+
 	public static ParticleSpray Instance;
 	private static bool _block = false;
 
@@ -17,7 +19,7 @@ public class ParticleSpray : MonoBehaviour
 		}
 	}
 
-	public void Spray (string efxName, Vector2 position)
+	public void Spray (string efxName, Vector2 position, bool isEFXPanel = false)
 	{
 		if (_block) {
 			return;
@@ -40,6 +42,10 @@ public class ParticleSpray : MonoBehaviour
 		toSpray.transform.position = new Vector3 (position.x, position.y, 0);
 
 		toSpray.AddComponent<Evaporation> ();
+
+		if (isEFXPanel) {
+			toSpray.transform.SetParent (efxTransform);
+		}
 
 		StartCoroutine (SetBlockForSeconds (0.5f));
 	}

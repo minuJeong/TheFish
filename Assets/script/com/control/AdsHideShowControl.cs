@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Advertisements;
 using System.Collections;
 
 [SerializePrivateVariables]
@@ -9,11 +10,16 @@ public class AdsHideShowControl : MonoBehaviour
 	private int countdown = COUNTDOWN;
 
 	[HideInInspector]
+	private const string GameAdID = "131622779";
+
+	[HideInInspector]
 	private Transform showhide = null;
 
 	private void Start ()
 	{
 		showhide = transform.GetChild (0);
+
+		Advertisement.Initialize (GameAdID);
 	}
 	
 	// Update is called once per frame

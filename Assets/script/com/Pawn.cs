@@ -243,7 +243,7 @@ public class Pawn : MonoBehaviour
 				Vector3 center = (transform.position + pawn.transform.position) * .5F;
 
 				if (growthIndex > 0 && pawn.growthIndex > 0) {
-					ParticleSpray.Instance.Spray ("HeartEfx", new Vector2 (center.x, center.y));
+					ParticleSpray.Instance.Spray ("HeartEfx", new Vector2 (center.x, center.y), true);
 				}
 			}
 		}

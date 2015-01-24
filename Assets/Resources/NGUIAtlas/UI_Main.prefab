@@ -121,7 +121,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: button_no
     x: 1372
-    y: 1154
+    y: 1035
     width: 73
     height: 54
     borderLeft: 0
@@ -186,7 +186,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: button_yes
     x: 1372
-    y: 1099
+    y: 1090
     width: 73
     height: 54
     borderLeft: 0
@@ -410,6 +410,19 @@ MonoBehaviour:
     y: 903
     width: 270
     height: 260
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: heart
+    x: 1372
+    y: 1145
+    width: 64
+    height: 63
     borderLeft: 0
     borderRight: 0
     borderTop: 0
