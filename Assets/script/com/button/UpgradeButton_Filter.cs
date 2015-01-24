@@ -1,18 +1,16 @@
 using UnityEngine;
 using System.Collections;
 
-public class UpgradeButton_Filter : UpgradeButton
+public class UpgradeButton_Filter : SimpleButton
 {
-	private void Start ()
-	{
-		faculty = new Filter ();
-		faculty.label = transform.parent.GetComponentInChildren<UILabel> ();
-		faculty.UpdatePriceText ();
-	}
-	
-	public override void Clicked ()
-	{
-		faculty.Upgrade ();
-	}
-	
+    public override void Clicked()
+    {
+        GameObject.Find("UI Root")
+            .transform
+            .FindChild("Facilities")
+            .gameObject
+            .GetComponent<FacilityUI>()
+            .UpgradeFilter();
+    }
+
 }

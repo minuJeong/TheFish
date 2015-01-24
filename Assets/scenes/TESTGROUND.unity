@@ -1614,7 +1614,7 @@ GameObject:
   - 4: {fileID: 336515008}
   - 114: {fileID: 336515009}
   m_Layer: 5
-  m_Name: item
+  m_Name: heater
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1787,7 +1787,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3007
+  startingRenderQueue: 3006
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -1855,13 +1855,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0f5fad06b32343e8aba8e704626edfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  faculty:
-    FacultyName: 
-    price: 0
-    price_increment: 0
-    price_multipliment: 0
-    level: 0
-    label: {fileID: 2092885589}
 --- !u!61 &464590675
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2171,6 +2164,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 691969627}
   - 114: {fileID: 691969628}
+  - 114: {fileID: 691969629}
   m_Layer: 5
   m_Name: Facilities
   m_TagString: Untagged
@@ -2239,6 +2233,17 @@ MonoBehaviour:
   mDepth: 500
   mSortingOrder: 0
   mClipOffset: {x: 0, y: 2}
+--- !u!114 &691969629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 691969626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38566646c3806f34688feff2aab862df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &701656068
 GameObject:
   m_ObjectHideFlags: 0
@@ -2324,7 +2329,7 @@ GameObject:
   - 4: {fileID: 739305470}
   - 114: {fileID: 739305471}
   m_Layer: 5
-  m_Name: item
+  m_Name: filter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2499,7 +2504,7 @@ GameObject:
   - 4: {fileID: 782934483}
   - 114: {fileID: 782934484}
   m_Layer: 5
-  m_Name: item
+  m_Name: tank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2928,13 +2933,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a872b5180865949d19cfe68d5af433f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  faculty:
-    FacultyName: 
-    price: 0
-    price_increment: 0
-    price_multipliment: 0
-    level: 0
-    label: {fileID: 1431264644}
 --- !u!114 &902867332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4359,6 +4357,18 @@ Prefab:
       propertyPath: m_LocalPosition.x
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 130926, guid: ee8123bfc365345af9848242443055f6, type: 2}
+      propertyPath: m_Name
+      value: tank
+      objectReference: {fileID: 0}
+    - target: {fileID: 130928, guid: ee8123bfc365345af9848242443055f6, type: 2}
+      propertyPath: m_Name
+      value: filter
+      objectReference: {fileID: 0}
+    - target: {fileID: 130938, guid: ee8123bfc365345af9848242443055f6, type: 2}
+      propertyPath: m_Name
+      value: heater
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ee8123bfc365345af9848242443055f6, type: 2}
   m_RootGameObject: {fileID: 1037603230}
@@ -4869,13 +4879,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cef00caf1abad41089624a53185d49a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  faculty:
-    FacultyName: 
-    price: 0
-    price_increment: 0
-    price_multipliment: 0
-    level: 0
-    label: {fileID: 924805919}
 --- !u!61 &1463470394
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5348,7 +5351,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3007
+  startingRenderQueue: 3006
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 3

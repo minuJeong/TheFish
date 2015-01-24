@@ -19,7 +19,7 @@ public class Tank2
         return _instance;
     }
 
-    private class BasicInfo
+    public class BasicInfo
     {
         public string imagePrefix;
         public double priceMultiplier;
@@ -34,8 +34,10 @@ public class Tank2
         public int maxFishCount;
     }
 
+    private BasicInfo basicInfo;
     private LevelInfo[] levelInfo;
 
+    public BasicInfo Basic { get { return basicInfo; } }
     public LevelInfo[] Level { get { return levelInfo; } }
 
     public void Init()
@@ -43,7 +45,7 @@ public class Tank2
         string txt = Resources.Load<TextAsset>("info/Tank").text;
         var data = JsonMapper.ToObject(txt);
 
-        var basicInfo = new BasicInfo();
+        basicInfo = new BasicInfo();
         var level0Info = new LevelInfo();
         var level1Info = new LevelInfo();
 
@@ -71,7 +73,7 @@ public class Tank2
         {
             var info = new LevelInfo();
             info.level = i;
-            info.price = ((int)basicInfo.priceMultiplier * levelInfo[i - 1].price / 1000) * 1000;
+            info.price = ((int)(basicInfo.priceMultiplier * levelInfo[i - 1].price) / 1000) * 1000;
             info.maxFishCount = (int)basicInfo.maxFishCountMultiplier * levelInfo[i - 1].maxFishCount;
 
             levelInfo[i] = info;

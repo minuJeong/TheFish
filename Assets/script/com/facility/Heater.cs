@@ -7,7 +7,19 @@ using LitJson;
 
 public class Heater2
 {
-    private class BasicInfo
+    private static Heater2 _instance = new Heater2();
+
+    public static Heater2 Instance()
+    {
+        if (_instance == null)
+        {
+            Debug.Log("Game instance should not null");
+        }
+
+        return _instance;
+    }
+
+    public class BasicInfo
     {
         public string imagePrefix;
         public double priceMultiplier;
@@ -22,20 +34,10 @@ public class Heater2
         public double hatchTime;
     }
 
-    private static Heater2 _instance = new Heater2();
-
-    public static Heater2 Instance()
-    {
-        if (_instance == null)
-        {
-            Debug.Log("Game instance should not null");
-        }
-
-        return _instance;
-    }
-
+    private BasicInfo basicInfo;
     private LevelInfo[] levelInfo;
 
+    public BasicInfo Basic { get { return basicInfo; } }
     public LevelInfo[] Level { get { return levelInfo; } }
 
     public void Init()
@@ -43,7 +45,7 @@ public class Heater2
         string txt = Resources.Load<TextAsset>("info/Heater").text;
         var data = JsonMapper.ToObject(txt);
 
-        var basicInfo = new BasicInfo();
+        basicInfo = new BasicInfo();
         var level0Info = new LevelInfo();
         var level1Info = new LevelInfo();
 
@@ -71,7 +73,7 @@ public class Heater2
         {
             var info = new LevelInfo();
             info.level = i;
-            info.price = ((int)basicInfo.priceMultiplier * levelInfo[i - 1].price / 1000) * 1000;
+            info.price = ((int)(basicInfo.priceMultiplier * levelInfo[i - 1].price) / 1000) * 1000;
             info.hatchTime = basicInfo.hatchTimeMultiplier * levelInfo[i - 1].hatchTime;
 
             levelInfo[i] = info;
