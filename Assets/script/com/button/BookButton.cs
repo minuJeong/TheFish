@@ -3,8 +3,8 @@ using System.Collections;
 
 public class BookButton : SimpleButton
 {
-	public GameObject TargetFacility;
-	public GameObject TargetBook;
+	public GameObject TargetFacility; // should set in Unity Editor
+	public GameObject TargetBook; // should set in Unity Editor
 
     public override void Clicked()
     {

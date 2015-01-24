@@ -12,6 +12,7 @@ public enum PawnRank
 	S,
 }
 
+[System.Serializable]
 public class PawnInfo
 {
 	public int index;
@@ -108,11 +109,11 @@ public class Pawn : MonoBehaviour
 	public int rankFactor = 0;
 	public string rankName = "C";
 	public int growthIndex = 0;
+	public string loadedName = "";
 	public double timeLeft = 0.0;
-	[HideInInspector]
-	public bool
-		isSetPosition = false;
-    public PawnInfo info = null;
+	public bool isSetPosition = false;
+	public bool isRankSet = false;
+	public PawnInfo info = null;
 
 	// private data
 	private Rect boundRect;
@@ -133,6 +134,7 @@ public class Pawn : MonoBehaviour
 		if (null == RankData) {
 			RankData = JsonMapper.ToObject (Resources.Load<TextAsset> ("info/RankRate").text);
 		}
+
 		//
 		timeLeft = Heater2.Instance ().Level [FacilityManager.Instance ().HeaterLevel].hatchTime;
 
@@ -142,19 +144,21 @@ public class Pawn : MonoBehaviour
 			StartCoroutine (grow ());
 		}
 
+		if (loadedName != "") {
+			Debug.Log (loadedName);
+			info.name = loadedName;
+		}
+
 		// add sprite component
 		UISpriteAnimation spriteAnimation = gameObject.AddComponent<UISpriteAnimation> ();
 		UISprite sprite = gameObject.GetComponent<UISprite> ();
 		sprite.atlas = Game.Instance ().UIAtlasPawn;
 
-        if(growthIndex == 0)
-        {
-            spriteAnimation.namePrefix = "egg_";
-        }
-        else
-        {
-            spriteAnimation.namePrefix = info.name;
-        }
+		if (growthIndex == 0) {
+			spriteAnimation.namePrefix = "egg_";
+		} else {
+			spriteAnimation.namePrefix = info.name;
+		}
 
 		spriteAnimation.framesPerSecond = 6;
 
@@ -256,7 +260,7 @@ public class Pawn : MonoBehaviour
 
 				punch ();
 
-				Vector3 center = (transform.position + pawn.transform.position) * .5F;
+				Vector3 center = (transform.localPosition + pawn.transform.localPosition) * .5F;
 
 				if (growthIndex > 0 && pawn.growthIndex > 0) {
 					StartCoroutine (MateManager.Mate ());
@@ -318,43 +322,66 @@ public class Pawn : MonoBehaviour
 		growthIndex++;
 
 		timeLeft = Heater2.Instance ().Level [FacilityManager.Instance ().HeaterLevel].hatchTime;
-        GetComponent<UISpriteAnimation>().namePrefix = info.name;
+		GetComponent<UISpriteAnimation> ().namePrefix = info.name;
 
 		punch ();
 	}
 
 	private void GeneratePawn ()
 	{
-        // Generate rank
+		// Generate rank
 		PawnRank rank = PawnRank.D;
+		List<PawnInfo> list;
+		int index = 0;
 
-		var curInfo = Filter2.Instance ().Level [FacilityManager.Instance ().FilterLevel];
-		float dice = Random.Range (0.0f, 100.0f);
-
-		float sum = 0.0f;
-		for (var i = 0; i < curInfo.percentage.Length; ++i) {
-			PawnRank currentRank = i + PawnRank.D;
-			if (PawnManager.Instance ().IsRankAvailable (currentRank) == false) {
-				rank = (PawnRank)System.Math.Max ((int)currentRank - 1, (int)PawnRank.D);
+		if (isRankSet) {
+			switch (rankName) {
+			case "D":
+				rank = PawnRank.D;
+				break;
+			case "C":
+				rank = PawnRank.C;
+				break;
+			case "B":
+				rank = PawnRank.B;
+				break;
+			case "A":
+				rank = PawnRank.A;
+				break;
+			case "S":
+				rank = PawnRank.S;
 				break;
 			}
 
-			float percentage = (float)curInfo.percentage [i];
-			if (sum <= dice && dice <= sum + percentage) {
-				rank = currentRank;
-				break;
+		} else {
+			var curInfo = Filter2.Instance ().Level [FacilityManager.Instance ().FilterLevel];
+			float dice = Random.Range (0.0f, 100.0f);
+
+			float sum = 0.0f;
+			for (var i = 0; i < curInfo.percentage.Length; ++i) {
+				PawnRank currentRank = i + PawnRank.D;
+				if (PawnManager.Instance ().IsRankAvailable (currentRank) == false) {
+					rank = (PawnRank)System.Math.Max ((int)currentRank - 1, (int)PawnRank.D);
+					break;
+				}
+
+				float percentage = (float)curInfo.percentage [i];
+				if (sum <= dice && dice <= sum + percentage) {
+					rank = currentRank;
+					break;
+				}
+
+				sum += percentage;
 			}
 
-			sum += percentage;
+			rankName = rank.ToString ();
 		}
 
-		rankName = rank.ToString ();
-    
-        // Generate instance
-        var list = Game.Instance().Book.PawnInfoPerRank[rank];
-        int index = Random.Range(0, list.Count - 1);
-        info = list[index];
-    }
+		// Generate instance
+		list = Game.Instance ().Book.PawnInfoPerRank [rank];
+		index = Random.Range (0, list.Count - 1);
+		info = list [index];
+	}
 
 }
 

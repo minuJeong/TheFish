@@ -3,9 +3,8 @@ using System.Collections;
 
 public class FacilityButton : SimpleButton
 {
-	// should set in Unity Editor
-	public GameObject TargetFacility;
-	public GameObject TargetBook;
+	public GameObject TargetFacility; // should set in Unity Editor
+	public GameObject TargetBook; // should set in Unity Editor
 
 	public override void Clicked ()
 	{

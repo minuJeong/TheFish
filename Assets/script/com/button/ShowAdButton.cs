@@ -20,6 +20,8 @@ public class ShowAdButton : SimpleButton
 
 		if (Advertisement.isReady ()) {
 			Advertisement.Show ();
+
+			Game.Instance ().money += 100000;
 		}
 	}
 }

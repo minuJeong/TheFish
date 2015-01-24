@@ -42,6 +42,7 @@ public class FacilityManager
         }
 
         ++TankLevel;
+		Game.Instance ().money -= requiredMoney;
         return FacilityUpgradeResult.Success;
     }
 
@@ -62,6 +63,7 @@ public class FacilityManager
         }
 
         ++FilterLevel;
+		Game.Instance ().money -= requiredMoney;
         return FacilityUpgradeResult.Success;
     }
 
@@ -82,6 +84,7 @@ public class FacilityManager
         }
 
         ++HeaterLevel;
+		Game.Instance ().money -= requiredMoney;
         return FacilityUpgradeResult.Success;
     }
 

@@ -28,6 +28,7 @@ public class StateSaveManager : MonoBehaviour
 			pawnData.rankFactor = pawn.rankFactor;
 			pawnData.rankName = pawn.rankName;
 			pawnData.growthIndex = pawn.growthIndex;
+			pawnData.name = pawn.info.name;
 
 			gameState.pawnsInTank.Add (pawnData);
 		}
@@ -35,21 +36,27 @@ public class StateSaveManager : MonoBehaviour
 		gameState.exitTime = Time.time;
 
 		BinaryFormatter bf = new BinaryFormatter ();
-		FileStream file = File.Open (Application.persistentDataPath + "/db/upgrade_and_tank", FileMode.CreateNew);
+		FileStream file = File.Open (Application.persistentDataPath + "/db/upgrade_and_tank", FileMode.OpenOrCreate);
 		bf.Serialize (file, gameState);
 		file.Close ();
+
+		Debug.Log ("Game saved.");
 	}
 	
 	// Update is called once per frame
 	public void Load ()
 	{
-		if ( ! File.Exists (Application.persistentDataPath + "/db/upgrade_and_tank")) {
+		if (! File.Exists (Application.persistentDataPath + "/db/upgrade_and_tank")) {
+			Debug.Log ("Save file not found: start new game");
 			return;
 		}
+
+		Debug.Log ("Save file found: load game");
 
 		BinaryFormatter bf = new BinaryFormatter ();
 		FileStream file = File.Open (Application.persistentDataPath + "/db/upgrade_and_tank", FileMode.Open);
 		gameState = (GameState)bf.Deserialize (file);
+		file.Close ();
 
 		float elapsedTime = Time.time - gameState.exitTime;
 
@@ -61,6 +68,9 @@ public class StateSaveManager : MonoBehaviour
 			Pawn pawn = Pawn.SprayPawn (Game.Instance ().transform, pawnData.growthIndex, true);
 			pawn.rankFactor = pawnData.rankFactor;
 			pawn.rankName = pawnData.rankName;
+			pawn.loadedName = pawnData.name;
+
+			pawn.isRankSet = true;
 		}
 	}
 }
@@ -69,7 +79,7 @@ public class StateSaveManager : MonoBehaviour
 public class GameState
 {
 	public FacilityUpgradeData facilityUpgradeData;
-	public List<PawnData> pawnsInTank;
+	public List<PawnData> pawnsInTank = new List<PawnData> ();
 	public float exitTime;
 }
 
@@ -79,6 +89,7 @@ public class PawnData
 	public int rankFactor;
 	public string rankName;
 	public int growthIndex;
+	public string name;
 }
 
 [System.Serializable]

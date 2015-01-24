@@ -44,12 +44,12 @@ public class Game : MonoBehaviour
 	{
 		Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
-		book.Init ();
-		_saved.Load ();
-
 		Heater2.Instance ().Init ();
 		Tank2.Instance ().Init ();
 		Filter2.Instance ().Init ();
+
+		book.Init ();
+		_saved.Load ();
 
 //      FacilityManager.Instance().TankLevel = 15;
 //      FacilityManager.Instance().HeaterLevel = 15;
