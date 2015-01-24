@@ -7,12 +7,12 @@ public class PawnManager
 {
 	// data
 	public List<Pawn> pawns = new List<Pawn> ();
-	public float MaxPawnCount = 6;
 	private static JsonData PriceData = null;
 
 	public bool isPawnMax ()
 	{
-		if (MaxPawnCount > pawns.Count) {
+        int maxPawnCount = Tank2.Instance().Level[FacilityManager.Instance().TankLevel].maxFishCount;
+		if (maxPawnCount > pawns.Count) {
 			return false;
 		}
 		return true;
