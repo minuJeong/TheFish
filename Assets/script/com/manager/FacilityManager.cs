@@ -52,7 +52,7 @@ public class FacilityManager
             return FacilityUpgradeResult.MaxLevel;
         }
 
-        int nextLevel = TankLevel + 1;
+        int nextLevel = FilterLevel + 1;
         int currentMoney = Game.Instance().money;
         int requiredMoney = Filter2.Instance().Level[nextLevel].price;
 
@@ -72,7 +72,7 @@ public class FacilityManager
             return FacilityUpgradeResult.MaxLevel;
         }
 
-        int nextLevel = TankLevel + 1;
+        int nextLevel = HeaterLevel + 1;
         int currentMoney = Game.Instance().money;
         int requiredMoney = Heater2.Instance().Level[nextLevel].price;
 
