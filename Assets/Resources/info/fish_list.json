@@ -31,32 +31,57 @@
     },
     {
         "index": 6,
-        "name": "bubblepantyman_",
-        "rank": "A"
-    },
-    {
-        "index": 7,
         "name": "cherryswimmer_",
         "rank": "C"
     },
     {
+        "index": 7,
+        "name": "pantyman_",
+        "rank": "C"
+    },
+    {
         "index": 8,
-        "name": "dashedlinedwoman_",
-        "rank": "B"
+        "name": "bubblepantyman_",
+        "rank": "C"
     },
     {
         "index": 9,
-        "name": "e",
+        "name": "merman_",
         "rank": "C"
     },
     {
         "index": 10,
+        "name": "eeman_",
+        "rank": "C"
+    },
+    {
+        "index": 11,
+        "name": "cherryswimmer_",
+        "rank": "C"
+    },
+    {
+        "index": 12,
+        "name": "dashedlinedwoman_",
+        "rank": "C"
+    },
+    {
+        "index": 13,
+        "name": "cherryswimmer_",
+        "rank": "B"
+    },
+    {
+        "index": 14,
+        "name": "dashedlinedwoman_",
+        "rank": "A"
+    },
+    {
+        "index": 15,
         "name": "merman_",
         "rank": "S"
     },
     {
-        "index": 11,
-        "name": "pantyman_",
+        "index": 16,
+        "name": "eeman_",
         "rank": "S"
     }
 ]
