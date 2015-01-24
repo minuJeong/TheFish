@@ -33,6 +33,8 @@ public class StateSaveManager : MonoBehaviour
 			gameState.pawnsInTank.Add (pawnData);
 		}
 
+		gameState.money = Game.Instance ().money;
+
 		gameState.exitTime = Time.time;
 
 		BinaryFormatter bf = new BinaryFormatter ();
@@ -60,6 +62,8 @@ public class StateSaveManager : MonoBehaviour
 
 		float elapsedTime = Time.time - gameState.exitTime;
 
+		Game.Instance ().money = gameState.money;
+
 		FacilityManager.Instance ().TankLevel = gameState.facilityUpgradeData.TankLevel;
 		FacilityManager.Instance ().FilterLevel = gameState.facilityUpgradeData.FilterLevel;
 		FacilityManager.Instance ().HeaterLevel = gameState.facilityUpgradeData.HeaterLevel;
@@ -80,6 +84,7 @@ public class GameState
 {
 	public FacilityUpgradeData facilityUpgradeData;
 	public List<PawnData> pawnsInTank = new List<PawnData> ();
+	public int money = 0;
 	public float exitTime;
 }
 

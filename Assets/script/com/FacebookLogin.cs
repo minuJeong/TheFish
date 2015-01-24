@@ -3,25 +3,13 @@ using System.Collections;
 
 public class FacebookLogin : SimpleButton
 {
+	public GameObject FeedButton; // should set in Unity Editor
+
 	// Facebook Login sequence
 	public override void Clicked ()
 	{
 		if (FB.IsLoggedIn) {
-			FB.Feed (toId: "",
-			         link: "",
-			         linkName: "",
-			         linkCaption: "",
-			         linkDescription: "",
-			         picture: "",
-			         mediaSource: "",
-			         actionName: "",
-			         actionLink: "",
-			         reference: "",
-			         properties: null,
-			         callback: delegate (FBResult result)
-			{
-				Debug.Log (result.Text);
-			});
+			LoginComplete ();
 		} else {
 			FB.Init (InitComplete); 
 		}
@@ -33,15 +21,13 @@ public class FacebookLogin : SimpleButton
 		{
 			Debug.Log (result.Text);
 
-			LoggedIn ();
+			LoginComplete ();
 		});
 	}
 
-	private void LoggedIn ()
+	private void LoginComplete ()
 	{
-		FB.API ("/me?fields=id,name", Facebook.HttpMethod.GET, delegate(FBResult result)
-		{
-			Debug.Log (result.Text);
-		});
+		FeedButton.SetActive (true);
+		gameObject.SetActive (false);
 	}
 }

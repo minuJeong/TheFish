@@ -935,6 +935,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &180416
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 480416}
+  - 114: {fileID: 11480416}
+  - 114: {fileID: 11430778}
+  - 61: {fileID: 6122226}
+  - 114: {fileID: 11445320}
+  m_Layer: 5
+  m_Name: TakeScreenshot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &181662
 GameObject:
   m_ObjectHideFlags: 1
@@ -1624,6 +1643,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 449494}
+  - {fileID: 480416}
   m_Father: {fileID: 424002}
   m_RootOrder: 0
 --- !u!4 &449494
@@ -1737,6 +1757,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 424002}
   m_RootOrder: 3
+--- !u!4 &480416
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 180416}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 291, y: -483, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 430952}
+  m_RootOrder: 1
 --- !u!4 &481662
 Transform:
   m_ObjectHideFlags: 1
@@ -1831,6 +1863,17 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
+--- !u!61 &6122226
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 180416}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Size: {x: 68, y: 66}
+  m_Center: {x: 0, y: 0}
 --- !u!61 &6130924
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -3103,6 +3146,17 @@ MonoBehaviour:
   hover: {x: 1.10000002, y: 1.10000002, z: 1}
   pressed: {x: .949999988, y: .949999988, z: 1}
   duration: .200000003
+--- !u!114 &11430778
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 180416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 365b3b33ee931424f8bee90a4e521d8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11430866
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4714,6 +4768,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TargetFacility: {fileID: 130930}
   TargetBook: {fileID: 130892}
+--- !u!114 &11445320
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 180416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c041f61e4a9fbf4e830210f5d933ece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tweenTarget: {fileID: 0}
+  hover: {x: 1.10000002, y: 1.10000002, z: 1.10000002}
+  pressed: {x: .949999988, y: .949999988, z: 1}
+  duration: .200000003
 --- !u!114 &11449494
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4775,6 +4844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ba7e3a5d750c4309ba1014435801fe7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FeedButton: {fileID: 180416}
 --- !u!114 &11449872
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5292,6 +5362,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a77b211ad07d465a9d5d4b361233a19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11480416
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 180416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  rightAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  bottomAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  topAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  updateAnchors: 1
+  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mPivot: 4
+  mWidth: 68
+  mHeight: 66
+  mDepth: 51
+  autoResizeBoxCollider: 1
+  hideIfOffScreen: 0
+  keepAspectRatio: 0
+  aspectRatio: 1.030303
+  mType: 0
+  mFillDirection: 4
+  mFillAmount: 1
+  mInvert: 0
+  mFlip: 0
+  centerType: 1
+  leftType: 1
+  rightType: 1
+  bottomType: 1
+  topType: 1
+  mAtlas: {fileID: 11471858, guid: 32513b3b439ee490dbba5b301f697641, type: 2}
+  mSpriteName: button_screenshot
+  mFillCenter: 1
 --- !u!114 &11481662
 MonoBehaviour:
   m_ObjectHideFlags: 1

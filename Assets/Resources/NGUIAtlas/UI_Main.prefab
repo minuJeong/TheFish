@@ -68,8 +68,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: button_Book_Pressed
-    x: 3499
-    y: 3323
+    x: 3835
+    y: 2084
     width: 226
     height: 123
     borderLeft: 0
@@ -120,7 +120,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: button_no
-    x: 3564
+    x: 3638
     y: 3268
     width: 73
     height: 54
@@ -132,6 +132,19 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: button_screenshot
+    x: 3726
+    y: 3260
+    width: 62
+    height: 62
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 4
+    paddingTop: 2
+    paddingBottom: 1
   - name: button_Sell
     x: 3420
     y: 2061
@@ -146,8 +159,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: button_Sell_Pressed
-    x: 3835
-    y: 2084
+    x: 3499
+    y: 3323
     width: 226
     height: 123
     borderLeft: 0
@@ -185,7 +198,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: button_yes
-    x: 3638
+    x: 3564
     y: 3268
     width: 73
     height: 54
