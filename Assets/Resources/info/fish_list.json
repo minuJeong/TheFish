@@ -1,32 +1,87 @@
 [
     {
         "index": 0,
-        "name": "bubblepantyman_",
-        "rank": "A"
+        "name": "pantyman_",
+        "rank": "D"
     },
     {
         "index": 1,
+        "name": "bubblepantyman_",
+        "rank": "D"
+    },
+    {
+        "index": 2,
+        "name": "merman_",
+        "rank": "D"
+    },
+    {
+        "index": 3,
+        "name": "eeman_",
+        "rank": "D"
+    },
+    {
+        "index": 4,
+        "name": "cherryswimmer_",
+        "rank": "D"
+    },
+    {
+        "index": 5,
+        "name": "dashedlinedwoman_",
+        "rank": "D"
+    },
+    {
+        "index": 6,
         "name": "cherryswimmer_",
         "rank": "C"
     },
     {
-        "index": 2,
-        "name": "dashedlinedwoman_",
-        "rank": "B"
-    },
-    {
-        "index": 3,
-        "name": "e",
+        "index": 7,
+        "name": "pantyman_",
         "rank": "C"
     },
     {
-        "index": 4,
+        "index": 8,
+        "name": "bubblepantyman_",
+        "rank": "C"
+    },
+    {
+        "index": 9,
+        "name": "merman_",
+        "rank": "C"
+    },
+    {
+        "index": 10,
+        "name": "eeman_",
+        "rank": "C"
+    },
+    {
+        "index": 11,
+        "name": "cherryswimmer_",
+        "rank": "C"
+    },
+    {
+        "index": 12,
+        "name": "dashedlinedwoman_",
+        "rank": "C"
+    },
+    {
+        "index": 13,
+        "name": "cherryswimmer_",
+        "rank": "B"
+    },
+    {
+        "index": 14,
+        "name": "dashedlinedwoman_",
+        "rank": "A"
+    },
+    {
+        "index": 15,
         "name": "merman_",
         "rank": "S"
     },
     {
-        "index": 5,
-        "name": "pantyman_",
+        "index": 16,
+        "name": "eeman_",
         "rank": "S"
     }
 ]

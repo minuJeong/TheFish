@@ -108,10 +108,11 @@ public class Pawn : MonoBehaviour
 	public int rankFactor = 0;
 	public string rankName = "C";
 	public int growthIndex = 0;
-	public double hatchTimeLeft = 0.0;
+	public double timeLeft = 0.0;
 	[HideInInspector]
 	public bool
 		isSetPosition = false;
+    public PawnInfo info = null;
 
 	// private data
 	private Rect boundRect;
@@ -133,9 +134,9 @@ public class Pawn : MonoBehaviour
 			RankData = JsonMapper.ToObject (Resources.Load<TextAsset> ("info/RankRate").text);
 		}
 		//
-		hatchTimeLeft = Heater2.Instance ().Level [FacilityManager.Instance ().HeaterLevel].hatchTime;
+		timeLeft = Heater2.Instance ().Level [FacilityManager.Instance ().HeaterLevel].hatchTime;
 
-		CalculateRank ();
+		GeneratePawn ();
 
 		if (growthIndex == 0) {
 			StartCoroutine (grow ());
@@ -146,11 +147,14 @@ public class Pawn : MonoBehaviour
 		UISprite sprite = gameObject.GetComponent<UISprite> ();
 		sprite.atlas = Game.Instance ().UIAtlasPawn;
 
-		if (GrowthData ["data"] [growthIndex] ["sprites"].Count == 1) {
-			spriteAnimation.namePrefix = (string)GrowthData ["data"] [growthIndex] ["sprites"] [rankName] [0];
-		} else {
-			spriteAnimation.namePrefix = (string)GrowthData ["data"] [growthIndex] ["sprites"] [rankName] [Random.Range (0, GrowthData ["data"] [growthIndex] ["sprites"] [rankName].Count)];
-		}
+        if(growthIndex == 0)
+        {
+            spriteAnimation.namePrefix = "egg_";
+        }
+        else
+        {
+            spriteAnimation.namePrefix = info.name;
+        }
 
 		spriteAnimation.framesPerSecond = 6;
 
@@ -168,8 +172,6 @@ public class Pawn : MonoBehaviour
 		boundRect.width -= sprite.width;
 		boundRect.height -= sprite.height;
 
-
-		// turn on isSetPosition when manually set position
 		if (! isSetPosition) {
 
 			float _x = Random.value * boundRect.width + boundRect.x;
@@ -289,11 +291,11 @@ public class Pawn : MonoBehaviour
 
 	private IEnumerator grow ()
 	{
-		if (hatchTimeLeft < 0) {
+		if (timeLeft < 0) {
 			yield break;
 		}
 
-		yield return new WaitForSeconds ((float)hatchTimeLeft);
+		yield return new WaitForSeconds ((float)timeLeft);
 
 		switch (rankName) {
 		case "S":
@@ -315,14 +317,15 @@ public class Pawn : MonoBehaviour
 
 		growthIndex++;
 
-		hatchTimeLeft = Heater2.Instance ().Level [FacilityManager.Instance ().HeaterLevel].hatchTime;
-		GetComponent<UISpriteAnimation> ().namePrefix = (string)GrowthData ["data"] [growthIndex] ["sprites"] [rankName] [Random.Range (0, GrowthData ["data"] [growthIndex] ["sprites"] [rankName].Count)];
+		timeLeft = Heater2.Instance ().Level [FacilityManager.Instance ().HeaterLevel].hatchTime;
+        GetComponent<UISpriteAnimation>().namePrefix = info.name;
 
 		punch ();
 	}
 
-	private void CalculateRank ()
+	private void GeneratePawn ()
 	{
+        // Generate rank
 		PawnRank rank = PawnRank.D;
 
 		var curInfo = Filter2.Instance ().Level [FacilityManager.Instance ().FilterLevel];
@@ -346,7 +349,12 @@ public class Pawn : MonoBehaviour
 		}
 
 		rankName = rank.ToString ();
-	}
+    
+        // Generate instance
+        var list = Game.Instance().Book.PawnInfoPerRank[rank];
+        int index = Random.Range(0, list.Count - 1);
+        info = list[index];
+    }
 
 }
 
