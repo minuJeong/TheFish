@@ -2593,6 +2593,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 130930, guid: ee8123bfc365345af9848242443055f6, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 130892, guid: ee8123bfc365345af9848242443055f6, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ee8123bfc365345af9848242443055f6, type: 2}
   m_RootGameObject: {fileID: 1037603230}
@@ -4770,7 +4778,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5607803c5ae6b4ee0b66e8bef2edd25e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Target: {fileID: 1979351819}
+  TargetFacility: {fileID: 0}
+  TargetBook: {fileID: 0}
 --- !u!114 &1201808679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4783,7 +4792,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5607803c5ae6b4ee0b66e8bef2edd25e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Target: {fileID: 0}
+  TargetFacility: {fileID: 0}
+  TargetBook: {fileID: 0}
 --- !u!114 &1201808680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7264,7 +7274,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a02fa1af393654abe948b3706cc967a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Target: {fileID: 691969626}
+  TargetFacility: {fileID: 0}
+  TargetBook: {fileID: 0}
 --- !u!114 &2059498669
 MonoBehaviour:
   m_ObjectHideFlags: 0

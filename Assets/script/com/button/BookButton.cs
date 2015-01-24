@@ -3,18 +3,21 @@ using System.Collections;
 
 public class BookButton : SimpleButton
 {
-    public GameObject Target;
+	public GameObject TargetFacility;
+	public GameObject TargetBook;
 
     public override void Clicked()
     {
-        if (Target.activeSelf)
+		if (TargetBook.activeSelf)
         {
-            Target.SetActive(false);
+			TargetBook.SetActive(false);
         }
         else
         {
-            Target.transform.localPosition = new Vector3(0, 0, 0);
-            Target.SetActive(true);
+			TargetBook.transform.localPosition = new Vector3(0, 0, 0);
+			TargetBook.SetActive(true);
+
+			TargetFacility.SetActive (false);
         }
     }
 }

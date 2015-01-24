@@ -35,7 +35,7 @@ public class Pawn : MonoBehaviour
 			return null;
 		}
 
-        SoundManager.Instance().Play("crossbreed");
+		SoundManager.Instance ().Play ("crossbreed");
 
 		Pawn pawn = new GameObject ("Pawn").AddComponent<Pawn> ();
 		PawnManager.Instance ().pawns.Add (pawn);
@@ -44,12 +44,6 @@ public class Pawn : MonoBehaviour
 
 		return pawn;
 	}
-
-	// DO NOT USE THIS METHOD YET
-//	public static Pawn SprayPawn (Transform parent_transform, Vector3 localPosition)
-//	{
-//
-//	}
 
 	public static Pawn SprayPawn (Transform parent_transform)
 	{
@@ -90,6 +84,18 @@ public class Pawn : MonoBehaviour
 		return pawn;
 	}
 
+	public static Pawn SprayPawn (Transform parent_transform, int growthIndex, bool ignoreDelay, Vector3 localPosition)
+	{
+		Pawn pawn = SprayPawn (parent_transform, growthIndex, ignoreDelay);
+		if (null == pawn) {
+			return null;
+		}
+		pawn.transform.localPosition = localPosition;
+		pawn.isSetPosition = true;
+		
+		return pawn;
+	}
+
 
 	// static data
 	public const int SPRAY_PAWN_DELAY = 10;
@@ -103,6 +109,9 @@ public class Pawn : MonoBehaviour
 	public string rankName = "C";
 	public int growthIndex = 0;
 	public double timeLeft = 0.0;
+	[HideInInspector]
+	public bool
+		isSetPosition = false;
 
 	// private data
 	private Rect boundRect;
@@ -159,10 +168,13 @@ public class Pawn : MonoBehaviour
 		boundRect.width -= sprite.width;
 		boundRect.height -= sprite.height;
 
-		float _x = Random.value * boundRect.width + boundRect.x;
-		float _y = Random.value * boundRect.height + boundRect.y;
+		if (! isSetPosition) {
 
-		transform.localPosition = new Vector3 (_x, _y, 0f);
+			float _x = Random.value * boundRect.width + boundRect.x;
+			float _y = Random.value * boundRect.height + boundRect.y;
+
+			transform.localPosition = new Vector3 (_x, _y, 0f);
+		}
 
 		// add collider
 		BoxCollider2D box2d = gameObject.AddComponent<BoxCollider2D> ();
@@ -221,7 +233,10 @@ public class Pawn : MonoBehaviour
 			punch ();
 		}
 
-		foreach (var pawn in PawnManager.Instance().pawns) {
+		List<Vector3> meetups = new List<Vector3> ();
+		int count = PawnManager.Instance ().pawns.Count;
+		for (int i = count - 1; i >= 0; i--) {
+			Pawn pawn = PawnManager.Instance ().pawns [i];
 			if (pawn == this) {
 				continue;
 			}
@@ -237,20 +252,22 @@ public class Pawn : MonoBehaviour
 
 				punch ();
 
-				if (growthIndex > 0 && pawn.growthIndex > 0) {
-					StartCoroutine (MateManager.Mate ());
-				}
-
 				Vector3 center = (transform.position + pawn.transform.position) * .5F;
 
 				if (growthIndex > 0 && pawn.growthIndex > 0) {
+					StartCoroutine (MateManager.Mate ());
 					ParticleSpray.Instance.Spray ("HeartEfx", new Vector2 (center.x, center.y), true);
+					meetups.Add (center);
 				}
+			}
+
+			foreach (var meetup in meetups) {
+				Pawn.SprayPawn (Game.Instance ().transform, 0, false, meetup);
 			}
 		}
 
 		if (Mathf.Abs (speed.x) < 1f) {
-			speed.x *= 1.045f;
+			speed.x *= 1.08f;
 		}
 
 		// apply temp variable
@@ -276,24 +293,23 @@ public class Pawn : MonoBehaviour
 
 		yield return new WaitForSeconds ((float)timeLeft);
 
-        switch(rankName)
-        {
-            case "S":
-                {
-                    SoundManager.Instance().Play("hatch_s");
-                }
-                break;
-            case "A":
-                {
-                    SoundManager.Instance().Play("hatch_a");
-                }
-                break;
-            default:
-                {
-                    SoundManager.Instance().Play("hatch_normal");
-                }
-                break;
-        }
+		switch (rankName) {
+		case "S":
+			{
+				SoundManager.Instance ().Play ("hatch_s");
+			}
+			break;
+		case "A":
+			{
+				SoundManager.Instance ().Play ("hatch_a");
+			}
+			break;
+		default:
+			{
+				SoundManager.Instance ().Play ("hatch_normal");
+			}
+			break;
+		}
 
 		growthIndex++;
 
