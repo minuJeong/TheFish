@@ -17,13 +17,9 @@ public class FacilityUI : MonoBehaviour
         filter = grid.gameObject.transform.FindChild("filter").gameObject;
         heater = grid.gameObject.transform.FindChild("heater").gameObject;
 
-        var tankPrice = tank.transform.FindChild("price_label").gameObject.GetComponent<UILabel>();
-        var filterPrice = filter.transform.FindChild("price_label").gameObject.GetComponent<UILabel>();
-        var heaterPrice = heater.transform.FindChild("price_label").gameObject.GetComponent<UILabel>();
-
-        tankPrice.text = Tank2.Instance().Level[1].price + " Won";
-        filterPrice.text = Filter2.Instance().Level[1].price + " Won";
-        heaterPrice.text = Heater2.Instance().Level[1].price + " Won";
+        UpdateTank();
+        UpdateFilter();
+        UpdateHeater();
     }
 
     public void UpgradeTank()
