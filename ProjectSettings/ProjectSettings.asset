@@ -67,7 +67,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  iPhoneBundleIdentifier: com.unity3d.remote
+  iPhoneBundleIdentifier: com.forhumanism.thefish
   metroEnableIndependentInputSource: 1
   metroEnableLowLatencyPresentationAPI: 0
   productGUID: 5c596556decb141888be121e4494e18f

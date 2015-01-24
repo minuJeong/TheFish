@@ -1,8 +1,5 @@
 package com.unity3d.remote;
 
-import com.unity3d.player.*;
-
-/**
- * @deprecated Use UnityPlayerNativeActivity instead.
- */
-public class UnityPlayerActivity extends UnityPlayerNativeActivity { }
+public class UnityPlayerActivity extends UnityPlayerNativeActivity {
+    private string APPLICATION_LICENCE_KEY = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApljhFjTPVFKP7YJdHkCI1MnKtdiFMxDR3t/sRx8kfJIkI3oS66QbKX//OFj6nBYMnJsEgQsWBHzeH1Yq4h2cYJLkxlgluazcD/low0lKey2+o2KEVbbt8jMrlxL9Ab8BUEsSQPZEMNktaZo0MLW2L2LvE1KVaBs6Oz/7pIiPjZ3snZZnz4ruKGb6JV6BW+OWC9nYRwiaqeVVCoGmehdnpbRe1AWBaXCo342Nhy4SRL/A5f0yOIGV+bvLzegezZLvCsbYGd85YK9eHPMJQaoVOj60TdjhaLgBvJFnVSIxEFI1A8vZLRu+PdrNae3JtjjiQDpGL1RhJBG7z3xLK3KTyQIDAQAB"
+}

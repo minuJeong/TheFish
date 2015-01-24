@@ -56,7 +56,7 @@ MonoBehaviour:
     paddingBottom: 6
   - name: button_Book
     x: 2054
-    y: 1421
+    y: 936
     width: 188
     height: 102
     borderLeft: 0
@@ -82,7 +82,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: button_close
     x: 1866
-    y: 792
+    y: 581
     width: 135
     height: 107
     borderLeft: 0
@@ -95,7 +95,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: button_Facility
     x: 2054
-    y: 1524
+    y: 1039
     width: 188
     height: 102
     borderLeft: 0
@@ -120,8 +120,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: button_Sell
-    x: 2054
-    y: 1627
+    x: 1451
+    y: 89
     width: 188
     height: 102
     borderLeft: 0
@@ -184,9 +184,22 @@ MonoBehaviour:
     paddingRight: 14
     paddingTop: 12
     paddingBottom: 10
+  - name: Facebook_F
+    x: 1697
+    y: 912
+    width: 251
+    height: 251
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: facility_image_filter_1
-    x: 1843
-    y: 72
+    x: 2054
+    y: 1142
     width: 194
     height: 195
     borderLeft: 0
@@ -198,8 +211,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: facility_image_filter_2
-    x: 1648
-    y: 72
+    x: 2054
+    y: 1338
     width: 194
     height: 195
     borderLeft: 0
@@ -211,8 +224,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: facility_image_filter_3
-    x: 1843
-    y: 268
+    x: 2054
+    y: 1534
     width: 194
     height: 195
     borderLeft: 0
@@ -224,8 +237,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: facility_image_tank_1
-    x: 1648
-    y: 268
+    x: 1843
+    y: 57
     width: 194
     height: 195
     borderLeft: 0
@@ -237,8 +250,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: facility_image_tank_2
-    x: 1843
-    y: 464
+    x: 1648
+    y: 57
     width: 194
     height: 195
     borderLeft: 0
@@ -250,8 +263,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: facility_image_tank_3
-    x: 1648
-    y: 464
+    x: 1843
+    y: 253
     width: 194
     height: 195
     borderLeft: 0
@@ -263,8 +276,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: facility_image_warmer_1
-    x: 1451
-    y: 11
+    x: 1648
+    y: 253
     width: 194
     height: 195
     borderLeft: 0
@@ -276,8 +289,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: facility_image_warmer_2
-    x: 1451
-    y: 207
+    x: 1671
+    y: 493
     width: 194
     height: 195
     borderLeft: 0
@@ -289,7 +302,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: facility_image_warmer_3
-    x: 1671
+    x: 1740
     y: 704
     width: 194
     height: 195
@@ -328,8 +341,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: filter_1
-    x: 1697
-    y: 953
+    x: 1451
+    y: 689
     width: 288
     height: 210
     borderLeft: 0
@@ -342,7 +355,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: filter_2
     x: 1451
-    y: 660
+    y: 449
     width: 219
     height: 239
     borderLeft: 0
@@ -472,7 +485,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: warmer_1
     x: 1451
-    y: 403
+    y: 192
     width: 196
     height: 256
     borderLeft: 0

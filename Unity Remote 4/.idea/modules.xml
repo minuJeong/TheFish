@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Unity Remote 4.iml" filepath="$PROJECT_DIR$/Unity Remote 4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/facebook/facebook.iml" filepath="$PROJECT_DIR$/facebook/facebook.iml" />
+      <module fileurl="file://$PROJECT_DIR$/unityRemote4/unityRemote4.iml" filepath="$PROJECT_DIR$/unityRemote4/unityRemote4.iml" />
     </modules>
   </component>
 </project>

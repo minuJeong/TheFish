@@ -1,22 +1,32 @@
 [
     {
         "index": 0,
-        "name": "Pikachu",
-        "rank": "S"
+        "name": "bubblepantyman_",
+        "rank": "A"
     },
     {
         "index": 1,
-        "name": "Raichu",
+        "name": "cherryswimmer_",
         "rank": "C"
     },
     {
         "index": 2,
-        "name": "Pichu",
+        "name": "dashedlinedwoman_",
+        "rank": "B"
+    },
+    {
+        "index": 3,
+        "name": "e",
         "rank": "C"
     },
     {
         "index": 3,
-        "name": "Mew",
+        "name": "merman_",
+        "rank": "S"
+    },
+    {
+        "index": 3,
+        "name": "pantyman_",
         "rank": "S"
     }
 ]

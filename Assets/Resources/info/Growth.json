@@ -30,19 +30,23 @@
             "sprites": {
                 "C": [
                     "merman_",
-                    "pantyman_"
+                    "pantyman_",
+                    "bubblepantyman_"
                 ],
                 "B": [
                     "merman_",
-                    "pantyman_"
+                    "pantyman_",
+                    "cherryswimmer_"
                 ],
                 "A": [
                     "merman_",
-                    "pantyman_"
+                    "pantyman_",
+                    "dashedlinedwoman_"
                 ],
                 "S": [
                     "merman_",
-                    "pantyman_"
+                    "pantyman_",
+                    "e"
                 ]
             },
             "bound": {
