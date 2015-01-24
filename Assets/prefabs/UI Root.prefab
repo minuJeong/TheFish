@@ -3464,6 +3464,7 @@ MonoBehaviour:
   mAtlas: {fileID: 11471858, guid: 32513b3b439ee490dbba5b301f697641, type: 2}
   mSpriteName: facility_image_filter_1
   mFillCenter: 1
+  Target: {fileID: 0}
 --- !u!114 &11467738
 MonoBehaviour:
   m_ObjectHideFlags: 1
