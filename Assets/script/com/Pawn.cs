@@ -211,8 +211,8 @@ public class Pawn : MonoBehaviour
 
 		growthIndex++;
 
-		timeLeft = (int)GrowthData ["times"] [growthIndex];
-		GetComponent<UISpriteAnimation> ().namePrefix = (string)GrowthData ["data"] [growthIndex] ["sprites"] [Random.Range (0, GrowthData ["sprites"] [growthIndex].Count)];
+		timeLeft = (int)GrowthData ["data"] [growthIndex] ["time"];
+		GetComponent<UISpriteAnimation> ().namePrefix = (string)GrowthData ["data"] [growthIndex] ["sprites"] [Random.Range (0, GrowthData ["data"] [growthIndex] ["sprites"].Count)];
 
 		punch ();
 	}
