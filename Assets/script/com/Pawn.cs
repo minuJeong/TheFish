@@ -131,7 +131,7 @@ public class Pawn : MonoBehaviour
 		//
         timeLeft = Heater2.Instance().Level[FacilityManager.Instance().HeaterLevel].hatchTime;
 
-		GetRank ();
+		CalculateRank ();
 		
 		StartCoroutine (grow ());
 
@@ -281,41 +281,28 @@ public class Pawn : MonoBehaviour
 		punch ();
 	}
 
-	private void GetRank ()
+	private void CalculateRank ()
 	{
-		rankName = "";
+        PawnRank rank = PawnRank.D;
 
-		RankData ["C"] [rankFactor].SetJsonType (JsonType.Double);
-		RankData ["B"] [rankFactor].SetJsonType (JsonType.Double);
-		RankData ["A"] [rankFactor].SetJsonType (JsonType.Double);
-		RankData ["S"] [rankFactor].SetJsonType (JsonType.Double);
+        var curInfo = Filter2.Instance().Level[FacilityManager.Instance().FilterLevel];
+        float dice = Random.Range(0.0f, 100.0f);
 
-		float rate_c = (float)((double)RankData ["C"] [rankFactor]);
-		float rate_b = (float)((double)RankData ["B"] [rankFactor]);
-		float rate_a = (float)((double)RankData ["A"] [rankFactor]);
-		float rate_s = (float)((double)RankData ["S"] [rankFactor]);
+        float sum = 0.0f;
+        for (var i = 0; i < curInfo.percentage.Length; ++i)
+        {
+            float percentage = (float)curInfo.percentage[i];
+            if(sum <= dice && dice <= sum + percentage)
+            {
+                rank = i + PawnRank.LOWEST;
+                break;
+            }
 
-		float dice = Random.Range (0, rate_c + rate_b + rate_a + rate_s);
+            sum += percentage;
+        }
 
-		dice -= rate_c;
-		if (dice <= 0) {
-			rankName = "C";
-			return;
-		}
-
-		dice -= rate_b;
-		if (dice <= 0) {
-			rankName = "B";
-			return;
-		}
-
-		dice -= rate_a;
-		if (dice <= 0) {
-			rankName = "A";
-			return;
-		}
-
-		rankName = "S";
+        rankName = rank.ToString();
+        Debug.Log(rankName);
 	}
 
 }

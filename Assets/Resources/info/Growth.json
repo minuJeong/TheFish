@@ -3,6 +3,9 @@
         {
             "name": "egg",
             "sprites": {
+                "D": [
+                    "egg_"
+                ],
                 "C": [
                     "egg_"
                 ],
@@ -26,6 +29,14 @@
         {
             "name": "adult",
             "sprites": {
+                "D": [
+                    "pantyman_",
+                    "bubblepantyman_",
+                    "merman_",
+                    "eeman_",
+                    "cherryswimmer_",
+                    "dashedlinedwoman_"
+                ],
                 "C": [
                     "pantyman_",
                     "bubblepantyman_",
