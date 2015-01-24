@@ -101,8 +101,6 @@ public class Pawn : MonoBehaviour
 	// static data
 	public const int SPRAY_PAWN_DELAY = 10;
 	public static int sprayPawnDelay = SPRAY_PAWN_DELAY;
-	private static JsonData GrowthData = null;
-	private static JsonData RankData = null;
 
 	// public data
 	public Vector2 speed = Vector2.zero;
@@ -125,15 +123,6 @@ public class Pawn : MonoBehaviour
 
 	private void Start ()
 	{
-		// load data
-		if (null == GrowthData) {
-			GrowthData = JsonMapper.ToObject (Resources.Load<TextAsset> ("info/Growth").text);
-
-		}
-
-		if (null == RankData) {
-			RankData = JsonMapper.ToObject (Resources.Load<TextAsset> ("info/RankRate").text);
-		}
 
 		//
 		timeLeft = Heater2.Instance ().Level [FacilityManager.Instance ().HeaterLevel].hatchTime;
