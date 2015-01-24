@@ -40,7 +40,7 @@ public class Faculty
 			
 			price *= price_multipliment;
 			price += price_increment;
-			price = (int) Mathf.Floor (price);
+			price = (int)Mathf.Floor (price);
 			 
 			level++;
 
@@ -51,7 +51,7 @@ public class Faculty
 		}
 	}
 
-	public void UpdatePriceText()
+	public void UpdatePriceText ()
 	{
 		if (null == label) {
 			return;
@@ -71,7 +71,7 @@ public class Tank : Faculty
 
 	public override void UpgradeSuccess ()
 	{
-		PawnManager.Instance ().MaxPawnCount++;
+		PawnManager.Instance ().MaxPawnCount *= (float)((double)data [FacultyName] ["effect"]);
 	}
 }
 
@@ -99,7 +99,7 @@ public class Warmer : Faculty
 
 	public override void UpgradeSuccess ()
 	{
-		Pawn.growthFactor++;
+		Pawn.growthFactor *= (float)((double)data [FacultyName] ["effect"]);
 	}
 }
 

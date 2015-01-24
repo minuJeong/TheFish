@@ -3,26 +3,54 @@
         {
             "name": "egg",
             "time": 10,
-            "sprites": [
-                "egg"
-            ],
-
-            "bound":
-            {
+            "sprites": {
+                "C": [
+                    "egg"
+                ],
+                "B": [
+                    "egg"
+                ],
+                "A": [
+                    "egg"
+                ],
+                "S": [
+                    "egg"
+                ]
+            },
+            "bound": {
                 "x": 0,
                 "y": 0,
                 "width": 0,
                 "height": 0
             }
         },
-        
         {
             "name": "adult",
             "time": -1,
-            "sprites": [
-                "merman_",
-                "pantyman_"
-            ]
+            "sprites": {
+                "C": [
+                    "merman_",
+                    "pantyman_"
+                ],
+                "B": [
+                    "merman_",
+                    "pantyman_"
+                ],
+                "A": [
+                    "merman_",
+                    "pantyman_"
+                ],
+                "S": [
+                    "merman_",
+                    "pantyman_"
+                ]
+            },
+            "bound": {
+                "x": 0,
+                "y": 0,
+                "width": 0,
+                "height": 0
+            }
         }
     ]
 }

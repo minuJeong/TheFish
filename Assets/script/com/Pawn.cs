@@ -13,8 +13,8 @@ public enum PawnRank
 
 public class PawnInfo
 {
-    public string name;
-    public PawnRank rank;
+	public string name;
+	public PawnRank rank;
 }
 
 public class Pawn : MonoBehaviour
@@ -86,11 +86,13 @@ public class Pawn : MonoBehaviour
 	public const int SPRAY_PAWN_DELAY = 10;
 	public static int sprayPawnDelay = SPRAY_PAWN_DELAY;
 	private static JsonData GrowthData = null;
+	private static JsonData RankData = null;
 
 	// public data
 	public string pawnName = "";
 	public Vector2 speed = Vector2.zero;
-	public PawnRank rank = PawnRank.C;
+	public int rankFactor = 0;
+	public string rankName = "C";
 	public int growthIndex = 0;
 	public int timeLeft = 0;
 
@@ -107,10 +109,13 @@ public class Pawn : MonoBehaviour
 		// load data
 		if (null == GrowthData) {
 			GrowthData = JsonMapper.ToObject (Resources.Load<TextAsset> ("info/Growth").text);
+			RankData = JsonMapper.ToObject (Resources.Load<TextAsset> ("info/RankRate").text);
 		}
 
 		//
 		timeLeft = (int)GrowthData ["data"] [growthIndex] ["time"];
+
+		GetRank ();
 		
 		StartCoroutine (grow ());
 
@@ -119,11 +124,10 @@ public class Pawn : MonoBehaviour
 		UISprite sprite = gameObject.GetComponent<UISprite> ();
 		sprite.atlas = Game.Instance ().UIAtlasPawn;
 
-		GrowthData ["data"] [growthIndex] ["sprites"].SetJsonType (JsonType.Array);
 		if (GrowthData ["data"] [growthIndex] ["sprites"].Count == 1) {
-			spriteAnimation.namePrefix = (string)GrowthData ["data"] [growthIndex] ["sprites"] [0];
+			spriteAnimation.namePrefix = (string)GrowthData ["data"] [growthIndex] ["sprites"] [rankName] [0];
 		} else {
-			spriteAnimation.namePrefix = (string)GrowthData ["data"] [growthIndex] ["sprites"] [Random.Range (0, GrowthData ["data"] [growthIndex] ["sprites"].Count)];
+			spriteAnimation.namePrefix = (string)GrowthData ["data"] [growthIndex] ["sprites"] [rankName] [Random.Range (0, GrowthData ["data"] [growthIndex] ["sprites"] [rankName].Count)];
 		}
 
 		spriteAnimation.framesPerSecond = 6;
@@ -258,9 +262,46 @@ public class Pawn : MonoBehaviour
 		growthIndex++;
 
 		timeLeft = (int)GrowthData ["data"] [growthIndex] ["time"];
-		GetComponent<UISpriteAnimation> ().namePrefix = (string)GrowthData ["data"] [growthIndex] ["sprites"] [Random.Range (0, GrowthData ["data"] [growthIndex] ["sprites"].Count)];
+		GetComponent<UISpriteAnimation> ().namePrefix = (string)GrowthData ["data"] [growthIndex] [rankName] ["sprites"] [Random.Range (0, GrowthData ["data"] [growthIndex] ["sprites"].Count)];
 
 		punch ();
+	}
+
+	private void GetRank ()
+	{
+		rankName = "";
+
+		RankData ["C"] [rankFactor].SetJsonType (JsonType.Double);
+		RankData ["B"] [rankFactor].SetJsonType (JsonType.Double);
+		RankData ["A"] [rankFactor].SetJsonType (JsonType.Double);
+		RankData ["S"] [rankFactor].SetJsonType (JsonType.Double);
+
+		float rate_c = (float)((double)RankData ["C"] [rankFactor]);
+		float rate_b = (float)((double)RankData ["B"] [rankFactor]);
+		float rate_a = (float)((double)RankData ["A"] [rankFactor]);
+		float rate_s = (float)((double)RankData ["S"] [rankFactor]);
+
+		float dice = Random.Range (0, rate_c + rate_b + rate_a + rate_s);
+
+		dice -= rate_c;
+		if (dice <= 0) {
+			rankName = "C";
+			return;
+		}
+
+		dice -= rate_b;
+		if (dice <= 0) {
+			rankName = "B";
+			return;
+		}
+
+		dice -= rate_a;
+		if (dice <= 0) {
+			rankName = "A";
+			return;
+		}
+
+		rankName = "S";
 	}
 
 }

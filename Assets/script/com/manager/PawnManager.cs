@@ -6,7 +6,7 @@ public class PawnManager
 {
 	// data
 	public List<Pawn> pawns = new List<Pawn> ();
-	public int MaxPawnCount = 6;
+	public float MaxPawnCount = 6;
 
 	public bool isPawnMax ()
 	{
@@ -19,7 +19,7 @@ public class PawnManager
 	public void SellPawn (Pawn pawn)
 	{
 		if (pawns.Count < 3) {
-			Debug.Log ("You have to leave at least 2 pawns");
+			Debug.Log ("You will need at least 2 pawns");
 			return;
 		}
 
