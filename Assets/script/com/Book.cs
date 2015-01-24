@@ -7,7 +7,6 @@ using LitJson;
 
 public class Book
 {
-
     private class JsonPawnInfo
     {
         public int index;
@@ -17,12 +16,14 @@ public class Book
 
     private Dictionary<int, PawnInfo> pawnInfoList = new Dictionary<int, PawnInfo>();
     private Dictionary<int, PawnInfo> unlockedList = new Dictionary<int, PawnInfo>();
+    private Dictionary<PawnRank, List<PawnInfo>> pawnInfoPerRank = new Dictionary<PawnRank, List<PawnInfo>>();
 
+    private string dbFolder;
     private string dbFilename;
 
     public Dictionary<int, PawnInfo> PawnInfoList { get { return pawnInfoList; } }
     public Dictionary<int, PawnInfo> UnlockedList { get { return unlockedList; } }
-
+    public Dictionary<PawnRank, List<PawnInfo>> PawnInfoPerRank { get { return pawnInfoPerRank; } }
     private void LoadStaticData()
     {
         string txt = Resources.Load<TextAsset>("info/fish_list").text;
@@ -38,13 +39,21 @@ public class Book
             info.rank = (PawnRank)Enum.Parse(typeof(PawnRank), person.rank, true);
 
             pawnInfoList.Add(info.index, info);
+
+            if (pawnInfoPerRank.ContainsKey(info.rank) == false)
+            {
+                pawnInfoPerRank.Add(info.rank, new List<PawnInfo>());
+            }
+
+            pawnInfoPerRank[info.rank].Add(info);
         }
     }
 
     private void LoadDB()
     {
         // DB data
-        dbFilename = Application.persistentDataPath + "/db/" + "fish_unlocked.json";
+        dbFolder = Application.persistentDataPath + "/db/";
+        dbFilename = dbFolder + "fish_unlocked.json";
         if (File.Exists(dbFilename) == false)
         {
             return;
@@ -76,17 +85,23 @@ public class Book
 
     private void SaveToDB()
     {
-        string dbStr = "[";
+        if(Directory.Exists(dbFolder) == false)
+        {
+            Directory.CreateDirectory(dbFolder);
+        }
+
+        var writer = new JsonWriter();
+        writer.WriteArrayStart();
 
         foreach (var pair in unlockedList)
         {
             var info = pair.Value;
-            dbStr += info.index + ", ";
+            writer.Write(info.index);
         }
 
-        dbStr += "]";
+        writer.WriteArrayEnd();
 
-        File.WriteAllText(dbFilename, dbStr);
+        File.WriteAllText(dbFilename, writer.ToString());
     }
 
     // Use this for initialization

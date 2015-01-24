@@ -112,6 +112,7 @@ public class Pawn : MonoBehaviour
 	[HideInInspector]
 	public bool
 		isSetPosition = false;
+    public PawnInfo info = null;
 
 	// private data
 	private Rect boundRect;
@@ -135,7 +136,7 @@ public class Pawn : MonoBehaviour
 		//
 		timeLeft = Heater2.Instance ().Level [FacilityManager.Instance ().HeaterLevel].hatchTime;
 
-		CalculateRank ();
+		GeneratePawn ();
 
 		if (growthIndex == 0) {
 			StartCoroutine (grow ());
@@ -319,8 +320,9 @@ public class Pawn : MonoBehaviour
 		punch ();
 	}
 
-	private void CalculateRank ()
+	private void GeneratePawn ()
 	{
+        // Generate rank
 		PawnRank rank = PawnRank.D;
 
 		var curInfo = Filter2.Instance ().Level [FacilityManager.Instance ().FilterLevel];
@@ -344,7 +346,12 @@ public class Pawn : MonoBehaviour
 		}
 
 		rankName = rank.ToString ();
-	}
+    
+        // Generate instance
+        var list = Game.Instance().Book.PawnInfoPerRank[rank];
+        int index = Random.Range(0, list.Count - 1);
+        info = list[index];
+    }
 
 }
 

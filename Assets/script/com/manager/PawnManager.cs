@@ -40,7 +40,7 @@ public class PawnManager
             foreach (var pair in Game.Instance().Book.PawnInfoList)
             {
                 var pawnInfo = pair.Value;
-                if (pawn.name == pawnInfo.name &&
+                if (pawn.info == pawnInfo &&
                     Game.Instance().Book.UnlockedList.ContainsKey(pawnInfo.index) == false)
                 {
                     Game.Instance().Book.Unlock(pawnInfo.index);
