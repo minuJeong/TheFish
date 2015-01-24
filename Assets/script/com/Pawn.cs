@@ -13,6 +13,7 @@ public enum PawnRank
 
 public class PawnInfo
 {
+    public int index;
 	public string name;
 	public PawnRank rank;
 }

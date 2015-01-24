@@ -14,7 +14,10 @@ public class Book
     }
 
     private List<PawnInfo> pawnInfoList = new List<PawnInfo>();
+    private List<PawnInfo> unlockedList = new List<PawnInfo>();
+
     public List<PawnInfo> PawnInfoList { get { return pawnInfoList; } }
+    public List<PawnInfo> UnlockedList { get { return unlockedList; } }
 
     // Use this for initialization
     public void Init()
@@ -28,10 +31,31 @@ public class Book
         foreach (var person in people)
         {
             var info = new PawnInfo();
+            info.index = pawnInfoList.Count;
             info.name = person.name;
             info.rank = (PawnRank)Enum.Parse(typeof(PawnRank), person.rank, true);
 
             pawnInfoList.Add(info);
         }
+    }
+
+    public void Unlock(int index)
+    {
+        if(index >= pawnInfoList.Count)
+        {
+            Debug.LogError("Index {0} doesn't exist.");
+            return;
+        }
+
+        foreach (var unlockedInfo in unlockedList)
+        {
+            if (unlockedInfo.index == index)
+            {
+                Debug.LogError("Index {0} already unlocked");
+                return;
+            }
+        }
+
+        unlockedList.Add(pawnInfoList[index]);
     }
 }
