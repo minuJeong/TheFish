@@ -11,6 +11,12 @@ public enum PawnRank
 	S
 }
 
+public class PawnInfo
+{
+    public string name;
+    public PawnRank rank;
+}
+
 public class Pawn : MonoBehaviour
 {
 	// static utilities
