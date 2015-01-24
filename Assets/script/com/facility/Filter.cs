@@ -58,7 +58,7 @@ public class Filter2
         foreach (var rankObj in Enum.GetValues(typeof(PawnRank)))
         {
             var rank = (PawnRank)rankObj;
-            if((int)rank == (int)PawnRank.LOWEST)
+            if((int)rank == (int)PawnRank.D)
             {
                 continue;
             }
@@ -76,7 +76,7 @@ public class Filter2
         foreach (var rankObj in Enum.GetValues(typeof(PawnRank)))
         {
             var rank = (PawnRank)rankObj;
-            if ((int)rank == (int)PawnRank.LOWEST)
+            if ((int)rank == (int)PawnRank.D)
             {
                 continue;
             }
@@ -85,7 +85,7 @@ public class Filter2
             level0Info.percentage[(int)rank - 1] = percentage;
             percentageSum += percentage;
         }
-        level0Info.percentage[(int)PawnRank.LOWEST - 1] = 100.0 - percentageSum;
+        level0Info.percentage[(int)PawnRank.D - 1] = 100.0 - percentageSum;
 
         percentageSum = 0.0;
         level1Info.level = (int)levelInfoJson[1]["level"];
@@ -94,7 +94,7 @@ public class Filter2
         foreach (var rankObj in Enum.GetValues(typeof(PawnRank)))
         {
             var rank = (PawnRank)rankObj;
-            if ((int)rank == (int)PawnRank.LOWEST)
+            if ((int)rank == (int)PawnRank.D)
             {
                 continue;
             }
@@ -103,7 +103,7 @@ public class Filter2
             level1Info.percentage[(int)rank - 1] = percentage;
             percentageSum += percentage;
         }
-        level1Info.percentage[(int)PawnRank.LOWEST - 1] = percentageSum;
+        level1Info.percentage[(int)PawnRank.D - 1] = percentageSum;
 
         levelInfo = new LevelInfo[basicInfo.maxLevel + 1];
         levelInfo[0] = level0Info;
@@ -136,7 +136,7 @@ public class Filter2
                 info.percentage[(int)rank - 1] = percentage;
                 percentageSum += percentage;
             }
-            info.percentage[(int)PawnRank.LOWEST - 1] = 100.0 - percentageSum;
+            info.percentage[(int)PawnRank.D - 1] = 100.0 - percentageSum;
 
             levelInfo[i] = info;
         }

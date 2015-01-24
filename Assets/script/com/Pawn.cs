@@ -5,8 +5,7 @@ using System.Collections.Generic;
 
 public enum PawnRank
 {
-    LOWEST = 1,
-    D = LOWEST,
+    D = 1,
 	C,
 	B,
 	A,
@@ -291,10 +290,17 @@ public class Pawn : MonoBehaviour
         float sum = 0.0f;
         for (var i = 0; i < curInfo.percentage.Length; ++i)
         {
+            PawnRank currentRank = i + PawnRank.D;
+            if(PawnManager.Instance().IsRankAvailable(currentRank) == false)
+            {
+                rank = (PawnRank)System.Math.Max((int)currentRank - 1, (int)PawnRank.D);
+                break;
+            }
+
             float percentage = (float)curInfo.percentage[i];
             if(sum <= dice && dice <= sum + percentage)
             {
-                rank = i + PawnRank.LOWEST;
+                rank = currentRank;
                 break;
             }
 
