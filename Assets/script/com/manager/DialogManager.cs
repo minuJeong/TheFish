@@ -22,8 +22,9 @@ public class DialogManager : MonoBehaviour
     private static float COOLTIME = 120.0f;
     private static float DURATION = 10.0f;
     private float displayDelay = COOLTIME;
+    private float tankDisplayDelay = 0.0f;
     private float displayDuration = 0.0f;
-    
+
     private void Start()
     {
         _instance = this;
@@ -44,8 +45,11 @@ public class DialogManager : MonoBehaviour
             }
         }
 
+
         // Next message
+        tankDisplayDelay -= Time.deltaTime;
         displayDelay -= Time.deltaTime;
+
         if (displayDelay <= 0.0f)
         {
             displayDelay += COOLTIME;
@@ -72,14 +76,14 @@ public class DialogManager : MonoBehaviour
         label.text = dialogue;
         displayDuration = DURATION;
 
-		iTween.PunchScale (transform.parent.gameObject, iTween.Hash ("amount", new Vector3 (0.1f, -0.1f, 0f)));
+        iTween.PunchScale(transform.parent.gameObject, iTween.Hash("amount", new Vector3(0.1f, -0.1f, 0f)));
     }
 
     private void Init()
     {
         string txt = Resources.Load<TextAsset>("info/Dialogue").text;
         var data = JsonMapper.ToObject(txt);
-        foreach(string key in data.Keys)
+        foreach (string key in data.Keys)
         {
             dialogues.Add(key, new List<string>());
 
@@ -102,6 +106,15 @@ public class DialogManager : MonoBehaviour
 
     public void ShowSpecialMessage(string category)
     {
+        if (category == "tankFull" && tankDisplayDelay > 0.0f)
+        {
+            return;
+        }
+        if(category == "tankFull")
+        {
+            tankDisplayDelay = 600.0f;
+        }
+
         displayDelay = COOLTIME;
         ShowMessage(category);
     }
