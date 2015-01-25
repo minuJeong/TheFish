@@ -1,7 +1,7 @@
 {
     "basic_info": {
         "imagePrefix": "facility_image_filter_",
-        "priceMultiplier": 1.52,
+        "priceMultiplier": 1.4,
         "maxLevel": 15,
         "percentageMultiplier": {
             "S": "square",
@@ -23,7 +23,7 @@
         },
         {
             "level": 1,
-            "price": 100000,
+            "price": 40000,
             "percentage": {
                 "S": 0.01,
                 "A": 1.0,
