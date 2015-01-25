@@ -6,40 +6,41 @@ using System.Text;
 
 public class BookUI : MonoBehaviour
 {
-    private UIGrid grid;
-    public void Init(Book book)
-    {
-        if(book.PawnInfoList.Count == 0)
-        {
-            return;
-        }
+	private UIGrid grid;
 
-        grid = transform.FindChild("Clip").FindChild("Foreground").FindChild("grid").gameObject.GetComponent<UIGrid>();
-        var item = grid.gameObject.transform.FindChild("item").gameObject;
+	public void Init (Book book)
+	{
+		if (book.PawnInfoList.Count == 0) {
+			return;
+		}
 
-        foreach (var pair in book.PawnInfoList)
-        {
-            var info = pair.Value;
+		grid = transform.FindChild ("Clip").FindChild ("Foreground").FindChild ("grid").gameObject.GetComponent<UIGrid> ();
+		var item = grid.gameObject.transform.FindChild ("item").gameObject;
 
-            // Add item object
-            var clone = (GameObject) UnityEngine.Object.Instantiate(item);
-            clone.transform.parent = grid.gameObject.transform;
+		foreach (var pair in book.PawnInfoList) {
+			var info = pair.Value;
 
-            clone.transform.localPosition = item.transform.localPosition;
-            clone.transform.localScale = item.transform.localScale;
+			// Add item object
+			var clone = (GameObject)UnityEngine.Object.Instantiate (item);
+			clone.transform.parent = grid.gameObject.transform;
 
-            var newPosition = clone.transform.localPosition;
-            newPosition.y += -275.24f;
-            clone.transform.localPosition = newPosition;
+			clone.transform.localPosition = item.transform.localPosition;
+			clone.transform.localScale = item.transform.localScale;
 
-            // Fill data
-            var name = clone.transform.FindChild("name_text").gameObject.GetComponent<UILabel>();
-            var rank = clone.transform.FindChild("rank_text").gameObject.GetComponent<UILabel>();
+			var newPosition = clone.transform.localPosition;
+			newPosition.y += -275.24f;
+			clone.transform.localPosition = newPosition;
 
-            name.text = info.name;
-            rank.text = info.rank.ToString();
-        }
+			// Fill data
+			var name = clone.transform.FindChild ("name_text").gameObject.GetComponent<UILabel> ();
+			var description = clone.transform.FindChild ("description_text").gameObject.GetComponent<UILabel> ();
 
-        GameObject.Destroy(item.gameObject);
-    }
+			name.text = info.name;
+			description.text = info.rank.ToString ();// TODO: rank to description
+
+			Debug.Log (book.UnlockedList.Contains (pair));
+		}
+
+		GameObject.Destroy (item.gameObject);
+	}
 }
