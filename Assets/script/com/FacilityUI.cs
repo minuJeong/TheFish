@@ -9,6 +9,36 @@ public class FacilityUI : MonoBehaviour
     private UIGrid grid;
     private GameObject tank, filter, heater;
 
+    private void CheckIfUnlocked(PawnRank before, PawnRank after)
+    {
+        if(before != after)
+        {
+            switch(after)
+            {
+                case PawnRank.S:
+                    {
+                        DialogManager.Instance().ShowSpecialMessage("UnlockedRankS");
+                    }
+                    break;
+                case PawnRank.A:
+                    {
+                        DialogManager.Instance().ShowSpecialMessage("UnlockedRankA");
+                    }
+                    break;
+                case PawnRank.B:
+                    {
+                        DialogManager.Instance().ShowSpecialMessage("UnlockedRankB");
+                    }
+                    break;
+                case PawnRank.C:
+                    {
+                        DialogManager.Instance().ShowSpecialMessage("UnlockedRankC");
+                    }
+                    break;
+            }
+        }
+    }
+
     public void Init()
     {
         grid = transform.FindChild("Clip").FindChild("Foreground").FindChild("grid").gameObject.GetComponent<UIGrid>();
@@ -24,6 +54,7 @@ public class FacilityUI : MonoBehaviour
 
     public void UpgradeTank()
     {
+        var beforeRank = PawnManager.Instance().GetMaxUnlockedRank();
         var result = FacilityManager.Instance().UpgradeTank();
         switch (result)
         {
@@ -32,6 +63,9 @@ public class FacilityUI : MonoBehaviour
                     SoundManager.Instance().Play("upgrade_facility");
                     DialogManager.Instance().ShowSpecialMessage("upgradeTank");
                     UpdateTank();
+
+                    var afterRank = PawnManager.Instance().GetMaxUnlockedRank();
+                    CheckIfUnlocked(beforeRank, afterRank);
                 }
                 break;
             case FacilityUpgradeResult.MaxLevel:
@@ -49,6 +83,7 @@ public class FacilityUI : MonoBehaviour
 
     public void UpgradeFilter()
     {
+        var beforeRank = PawnManager.Instance().GetMaxUnlockedRank();
         var result = FacilityManager.Instance().UpgradeFilter();
         switch (result)
         {
@@ -57,6 +92,9 @@ public class FacilityUI : MonoBehaviour
                     SoundManager.Instance().Play("upgrade_facility");
                     DialogManager.Instance().ShowSpecialMessage("upgradeFilter");
                     UpdateFilter();
+
+                    var afterRank = PawnManager.Instance().GetMaxUnlockedRank();
+                    CheckIfUnlocked(beforeRank, afterRank);
                 }
                 break;
             case FacilityUpgradeResult.MaxLevel:
@@ -74,6 +112,7 @@ public class FacilityUI : MonoBehaviour
 
     public void UpgradeHeater()
     {
+        var beforeRank = PawnManager.Instance().GetMaxUnlockedRank();
         var result = FacilityManager.Instance().UpgradeHeater();
         switch (result)
         {
@@ -82,6 +121,9 @@ public class FacilityUI : MonoBehaviour
                     SoundManager.Instance().Play("upgrade_facility");
                     DialogManager.Instance().ShowSpecialMessage("upgradeHeater");
                     UpdateHeater();
+
+                    var afterRank = PawnManager.Instance().GetMaxUnlockedRank();
+                    CheckIfUnlocked(beforeRank, afterRank);
                 }
                 break;
             case FacilityUpgradeResult.MaxLevel:
