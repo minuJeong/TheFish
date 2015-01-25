@@ -41,6 +41,11 @@ public class Pawn : MonoBehaviour
 		Pawn pawn = new GameObject ("Pawn").AddComponent<Pawn> ();
 		PawnManager.Instance ().pawns.Add (pawn);
 
+        if(PawnManager.Instance().isPawnMax())
+        {
+            DialogManager.Instance().ShowSpecialMessage("tankFull");
+        }
+
 		pawn.gameObject.layer = LayerMask.NameToLayer ("UI");
 
 		return pawn;
