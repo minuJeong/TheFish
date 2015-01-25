@@ -72,7 +72,7 @@ public class DialogManager : MonoBehaviour
         }
 
         var list = dialogues[category];
-        int index = Random.Range(0, list.Count - 1);
+        int index = Random.Range(0, list.Count);
         string dialogue = list[index];
 
         label.text = dialogue;
