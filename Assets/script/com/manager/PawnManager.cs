@@ -33,8 +33,11 @@ public class PawnManager
             GameObject.Destroy(pawn.gameObject, 0.1f);
             pawns.Remove(pawn);
 
-
             Game.Instance().money += (int)PriceData[pawn.rankName];
+            if(pawns.Count == 2)
+            {
+                DialogManager.Instance().ShowSpecialMessage("onlyTwoLeft");
+            }
 
             // Register book
             foreach (var pair in Game.Instance().Book.PawnInfoList)
