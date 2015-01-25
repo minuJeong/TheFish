@@ -1838,7 +1838,7 @@ Camera:
   m_GameObject: {fileID: 124008}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 4
+  m_ClearFlags: 2
   m_BackGroundColor: {r: .5, g: .5, b: .5, a: 1}
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -2773,23 +2773,23 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 1.82248521
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: d0ddb928c59ff4605a6490773e075b40, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: 55925d87961ae40f0815f1284c287643, type: 3}
   mFont: {fileID: 0}
   mText: "\uC548\uB155 \uB514\uC9C0\uBAAC\n"
-  mFontSize: 40
+  mFontSize: 26
   mFontStyle: 0
   mAlignment: 1
   mEncoding: 0
   mMaxLineCount: 0
-  mEffectStyle: 2
+  mEffectStyle: 0
   mEffectColor: {r: .220588207, g: .220588207, b: .220588207, a: 1}
   mSymbols: 1
   mEffectDistance: {x: 1, y: 1}
   mOverflow: 1
   mMaterial: {fileID: 0}
   mApplyGradient: 1
-  mGradientTop: {r: 1, g: 1, b: 1, a: 1}
-  mGradientBottom: {r: .683823526, g: .661699831, b: .538008213, a: 1}
+  mGradientTop: {r: 0, g: 0, b: 0, a: 1}
+  mGradientBottom: {r: 0, g: 0, b: 0, a: 1}
   mSpacingX: 6
   mSpacingY: 0
   mUseFloatSpacing: 0

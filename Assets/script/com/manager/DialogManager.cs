@@ -71,6 +71,8 @@ public class DialogManager : MonoBehaviour
 
         label.text = dialogue;
         displayDuration = DURATION;
+
+		iTween.PunchScale (transform.parent.gameObject, iTween.Hash ("amount", new Vector3 (0.1f, -0.1f, 0f)));
     }
 
     private void Init()
