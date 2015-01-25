@@ -91,6 +91,9 @@ public class Pawn : MonoBehaviour
 		if (null == pawn) {
 			return null;
 		}
+
+		ParticleSpray.Instance.Spray ("HeartEfx", localPosition, true);
+
 		pawn.transform.localPosition = localPosition;
 		pawn.isSetPosition = true;
 		
@@ -99,7 +102,7 @@ public class Pawn : MonoBehaviour
 
 
 	// static data
-	public const int SPRAY_PAWN_DELAY = 10;
+	public const int SPRAY_PAWN_DELAY = 25;
 	public static int sprayPawnDelay = SPRAY_PAWN_DELAY;
 
 	// public data
@@ -111,6 +114,7 @@ public class Pawn : MonoBehaviour
 	public double timeLeft = 0.0;
 	public bool isSetPosition = false;
 	public bool isRankSet = false;
+	public bool isFoundCollide = false;
 	public PawnInfo info = null;
 
 	// private data
@@ -160,10 +164,6 @@ public class Pawn : MonoBehaviour
 
 		// boundaries
 		boundRect = Game.Instance ().GameArea;
-		boundRect.x += sprite.width / 2;
-		boundRect.y += sprite.height / 2;
-		boundRect.width -= sprite.width;
-		boundRect.height -= sprite.height;
 
 		if (! isSetPosition) {
 
@@ -193,6 +193,9 @@ public class Pawn : MonoBehaviour
 
 	private void Update ()
 	{
+		// reset every frame
+		isFoundCollide = false;
+
 		// count delay
 		sprayPawnDelay--;
 
@@ -202,39 +205,43 @@ public class Pawn : MonoBehaviour
 		tmplPoint.x += speed.x;
 		tmplPoint.y += speed.y;
 
-		if (tmplPoint.x < boundRect.xMin) {
-			tmplPoint.x = boundRect.xMin;
+		if (tmplPoint.x - GetComponent<UISprite> ().width/2 < boundRect.xMin) {
+			tmplPoint.x = boundRect.xMin + GetComponent<UISprite> ().width/2;
 			speed.x *= -1f;
 
 			punch ();
 		}
 
-		if (tmplPoint.x > boundRect.xMax) {
-			tmplPoint.x = boundRect.xMax;
+		if (tmplPoint.x + GetComponent<UISprite> ().width/2 > boundRect.xMax) {
+			tmplPoint.x = boundRect.xMax - GetComponent<UISprite> ().width/2;
 			speed.x *= -1f;
 
 			punch ();
 		}
 
-		if (tmplPoint.y < boundRect.yMin) {
-			tmplPoint.y = boundRect.yMin;
+		if (tmplPoint.y - GetComponent<UISprite> ().height/2 < boundRect.yMin) {
+			tmplPoint.y = boundRect.yMin + GetComponent<UISprite> ().height/2;
 			speed.y *= -1f;
 
 			punch ();
 		}
 
-		if (tmplPoint.y > boundRect.yMax) {
-			tmplPoint.y = boundRect.yMax;
+		if (tmplPoint.y + GetComponent<UISprite> ().height/2 > boundRect.yMax) {
+			tmplPoint.y = boundRect.yMax - GetComponent<UISprite> ().height/2;
 			speed.y *= -1f;
 
 			punch ();
 		}
 
-		List<Vector3> meetups = new List<Vector3> ();
+		List<Vector2> meetups = new List<Vector2> ();
 		int count = PawnManager.Instance ().pawns.Count;
 		for (int i = count - 1; i >= 0; i--) {
 			Pawn pawn = PawnManager.Instance ().pawns [i];
 			if (pawn == this) {
+				continue;
+			}
+
+			if (pawn.isFoundCollide) {
 				continue;
 			}
 
@@ -247,15 +254,23 @@ public class Pawn : MonoBehaviour
 				speed.x = Mathf.Cos (angle) * speed.magnitude;
 				speed.y = Mathf.Sin (angle) * speed.magnitude;
 
+				angle += Mathf.PI;
+
+				pawn.speed.x = Mathf.Cos (angle) * pawn.speed.magnitude;
+				pawn.speed.y = Mathf.Sin (angle) * pawn.speed.magnitude;
+
 				punch ();
 
-				Vector3 center = (transform.localPosition + pawn.transform.localPosition) * .5F;
+				Vector3 center_3 = Vector3.Lerp (transform.localPosition, pawn.transform.localPosition, 0.5f);
+				Vector2 center = new Vector2 (center_3.x, center_3.y);
+
 
 				if (growthIndex > 0 && pawn.growthIndex > 0) {
 					StartCoroutine (MateManager.Mate ());
-					ParticleSpray.Instance.Spray ("HeartEfx", new Vector2 (center.x, center.y), true);
 					meetups.Add (center);
 				}
+
+				isFoundCollide = true;
 			}
 
 			foreach (var meetup in meetups) {

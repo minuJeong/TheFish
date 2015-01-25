@@ -42,6 +42,17 @@ public class Game : MonoBehaviour
 
 	void Start ()
 	{
+
+		Vector4 v4 = GetComponentInParent<UIPanel> ().baseClipRegion;
+
+		Debug.Log (GetComponentInParent<UIPanel> ().clipOffset);
+		Debug.Log (GetComponentInParent<UIPanel> ().width);
+		Debug.Log (GetComponentInParent<UIPanel> ().baseClipRegion);
+
+
+
+//		GameArea = new Rect (v4.x, v4.y, v4.w, v4.z);
+
 		Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
 		Heater2.Instance ().Init ();

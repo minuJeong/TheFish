@@ -38,13 +38,13 @@ public class ParticleSpray : MonoBehaviour
 		}
 
 		GameObject toSpray = (GameObject)Instantiate (pool [efxName]);
-		toSpray.transform.position = new Vector3 (position.x, position.y, 0);
 
 		toSpray.AddComponent<Evaporation> ();
 
 		if (isEFXPanel) {
 			toSpray.transform.SetParent (efxTransform);
 		}
+		toSpray.transform.localPosition = new Vector3 (position.x, position.y, 0);
 
 		StartCoroutine (SetBlockForSeconds (0.5f));
 	}
