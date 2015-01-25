@@ -205,29 +205,29 @@ public class Pawn : MonoBehaviour
 		tmplPoint.x += speed.x;
 		tmplPoint.y += speed.y;
 
-		if (tmplPoint.x - GetComponent<UISprite> ().width/2 < boundRect.xMin) {
-			tmplPoint.x = boundRect.xMin + GetComponent<UISprite> ().width/2;
+		if (tmplPoint.x - GetComponent<UISprite> ().width / 2 < boundRect.xMin) {
+			tmplPoint.x = boundRect.xMin + GetComponent<UISprite> ().width / 2;
 			speed.x *= -1f;
 
 			punch ();
 		}
 
-		if (tmplPoint.x + GetComponent<UISprite> ().width/2 > boundRect.xMax) {
-			tmplPoint.x = boundRect.xMax - GetComponent<UISprite> ().width/2;
+		if (tmplPoint.x + GetComponent<UISprite> ().width / 2 > boundRect.xMax) {
+			tmplPoint.x = boundRect.xMax - GetComponent<UISprite> ().width / 2;
 			speed.x *= -1f;
 
 			punch ();
 		}
 
-		if (tmplPoint.y - GetComponent<UISprite> ().height/2 < boundRect.yMin) {
-			tmplPoint.y = boundRect.yMin + GetComponent<UISprite> ().height/2;
+		if (tmplPoint.y - GetComponent<UISprite> ().height / 2 < boundRect.yMin) {
+			tmplPoint.y = boundRect.yMin + GetComponent<UISprite> ().height / 2;
 			speed.y *= -1f;
 
 			punch ();
 		}
 
-		if (tmplPoint.y + GetComponent<UISprite> ().height/2 > boundRect.yMax) {
-			tmplPoint.y = boundRect.yMax - GetComponent<UISprite> ().height/2;
+		if (tmplPoint.y + GetComponent<UISprite> ().height / 2 > boundRect.yMax) {
+			tmplPoint.y = boundRect.yMax - GetComponent<UISprite> ().height / 2;
 			speed.y *= -1f;
 
 			punch ();
@@ -260,6 +260,7 @@ public class Pawn : MonoBehaviour
 				pawn.speed.y = Mathf.Sin (angle) * pawn.speed.magnitude;
 
 				punch ();
+				pawn.punch ();
 
 				Vector3 center_3 = Vector3.Lerp (transform.localPosition, pawn.transform.localPosition, 0.5f);
 				Vector2 center = new Vector2 (center_3.x, center_3.y);
@@ -286,15 +287,19 @@ public class Pawn : MonoBehaviour
 		transform.localPosition = tmplPoint;
 	}
 
-	private void punch ()
+	public void punch ()
 	{
+		iTween.PunchScale (gameObject, iTween.Hash ("amount", new Vector3 (- 0.3f, 0.3f, 0f)));
+
+		if (null == GetComponent<UISprite> ()) {
+			return;
+		}
+
 		if (speed.x < 0) {
 			GetComponent<UISprite> ().flip = UIBasicSprite.Flip.Horizontally;
 		} else {
 			GetComponent<UISprite> ().flip = UIBasicSprite.Flip.Nothing;
 		}
-
-		iTween.PunchScale (gameObject, iTween.Hash ("amount", new Vector3 (- 0.3f, 0.3f, 0f)));
 	}
 
 	private IEnumerator grow ()
