@@ -8,12 +8,12 @@ public class AdsHideShowControl : MonoBehaviour
 
 	private const int COUNTDOWN = 550;
 	private int countdown = COUNTDOWN;
-
 	[HideInInspector]
-	private const string GameAdID = "131622779";
-
+	private const string
+		GameAdID = "131622779";
 	[HideInInspector]
-	private Transform showhide = null;
+	private Transform
+		showhide = null;
 
 	private void Start ()
 	{

@@ -89,6 +89,7 @@ namespace UnityEngine.Advertisements {
 		private void HTTPFileCallback(HTTPResponse pictureURLRequestResponse) {
 			downloadedResourcesCount ++;
 			if(pictureURLRequestResponse.dataLength != 0)
+
 				System.IO.File.WriteAllBytes(ad.getLocalImageURL(imageOrientations[pictureURLRequestResponse.url], imageTypes[pictureURLRequestResponse.url]), pictureURLRequestResponse.data);
 			
 			if(downloadedResourcesCount == PictureAd.expectedResourcesCount) {
