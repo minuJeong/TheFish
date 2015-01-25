@@ -1,7 +1,7 @@
 {
     "basic_info": {
         "imagePrefix": "facility_image_warmer_",
-        "priceMultiplier": 1.8,
+        "priceMultiplier": 1.7,
         "hatchTimeMultiplier": 0.9,
         "maxLevel": 15
     },
