@@ -368,13 +368,15 @@ public class Pawn : MonoBehaviour
 			}
 
 		} else {
+            var maxRank = PawnManager.Instance().GetMaxUnlockedRank();
+
 			var curInfo = Filter2.Instance ().Level [FacilityManager.Instance ().FilterLevel];
 			float dice = Random.Range (0.0f, 100.0f);
 
 			float sum = 0.0f;
 			for (var i = 0; i < curInfo.percentage.Length; ++i) {
 				PawnRank currentRank = i + PawnRank.D;
-				if (PawnManager.Instance ().IsRankAvailable (currentRank) == false) {
+				if (currentRank > maxRank) {
 					rank = (PawnRank)System.Math.Max ((int)currentRank - 1, (int)PawnRank.D);
 					break;
 				}

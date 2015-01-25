@@ -52,13 +52,13 @@ public class PawnManager
         }
     }
 
-    public bool IsRankAvailable(PawnRank rank)
+    public PawnRank GetMaxUnlockedRank()
     {
-        if(rank == PawnRank.S)
-        {
-            if(false) // Watch ad video once and it becomes false
+       // S rank special condition
+       if(false) // Watch ad video once and it becomes true
+       {
             {
-                return false;
+                return PawnRank.S;
             }
         }
 
@@ -67,44 +67,50 @@ public class PawnManager
         levels.Add(FacilityManager.Instance().FilterLevel);
         levels.Add(FacilityManager.Instance().HeaterLevel);
 
-        int minimumLevel = 100000;
+        int minimumLevelA = 10;
+        int minimumLevelB = 5;
+        int minimumLevelC = 3;
 
-        switch (rank)
-        {
-            case PawnRank.S:
-            case PawnRank.A:
-                {
-                    minimumLevel = 10;
-                }
-                break;
-            case PawnRank.B:
-                {
-                    minimumLevel = 5;
-                }
-                break;
-            case PawnRank.C:
-                {
-                    minimumLevel = 3;
-                }
-                break;
-            case PawnRank.D:
-                {
-                    minimumLevel = -1;
-                }
-                break;
-        }
+        // A
+        PawnRank maxRank = PawnRank.D;
+        bool passedA = true;
+        bool passedB = true;
+        bool passedC = true;
 
-        bool passed = true;
-        foreach (var level in levels)
+        foreach (int level in levels)
         {
-            if(level < minimumLevel)
+            if(level < minimumLevelA)
             {
-                passed = false;
-                break;
+                passedA = false;
+            }
+            if(level < minimumLevelB)
+            {
+                passedB = false;
+            }
+            if(level < minimumLevelC)
+            {
+                passedC = false;
             }
         }
 
-        return passed;
+        if(passedA == true)
+        {
+            maxRank = PawnRank.A;
+        }
+        else if(passedB == true)
+        {
+            maxRank = PawnRank.B;
+        }
+        else if(passedC == true)
+        {
+            maxRank = PawnRank.C;
+        }
+        else
+        {
+            maxRank = PawnRank.D;
+        }
+
+        return maxRank;
     }
 
     // Singleton
