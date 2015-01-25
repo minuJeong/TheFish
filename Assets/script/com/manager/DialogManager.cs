@@ -19,8 +19,10 @@ public class DialogManager : MonoBehaviour
 
     private UILabel label;
     private Dictionary<string, List<string>> dialogues = new Dictionary<string, List<string>>();
-    private static float COOLTIME = 10.0f;
+    private static float COOLTIME = 120.0f;
+    private static float DURATION = 10.0f;
     private float displayDelay = COOLTIME;
+    private float displayDuration = 0.0f;
     
     private void Start()
     {
@@ -32,6 +34,17 @@ public class DialogManager : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        // Displaying message
+        if (displayDuration > 0.0f)
+        {
+            displayDuration -= Time.deltaTime;
+            if (displayDuration <= 0.0f)
+            {
+                ShowMessage("always");
+            }
+        }
+
+        // Next message
         displayDelay -= Time.deltaTime;
         if (displayDelay <= 0.0f)
         {
@@ -57,6 +70,7 @@ public class DialogManager : MonoBehaviour
         string dialogue = list[index];
 
         label.text = dialogue;
+        displayDuration = DURATION;
     }
 
     private void Init()
@@ -77,7 +91,12 @@ public class DialogManager : MonoBehaviour
 
         // Show initial message
         ShowMessage("normal");
-    }    
+    }
+
+    private void ClearMessage()
+    {
+        label.text = "";
+    }
 
     public void ShowSpecialMessage(string category)
     {

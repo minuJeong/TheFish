@@ -4399,8 +4399,8 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 1.82248521
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 0}
-  mFont: {fileID: 11456702, guid: bab3841fc81304b3d90558da79db83fd, type: 2}
+  mTrueTypeFont: {fileID: 12800000, guid: d0ddb928c59ff4605a6490773e075b40, type: 3}
+  mFont: {fileID: 0}
   mText: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
     incididunt ut labore et
   mFontSize: 30
@@ -6398,6 +6398,15 @@ Prefab:
     - target: {fileID: 2023982, guid: ee8123bfc365345af9848242443055f6, type: 2}
       propertyPath: m_ClearFlags
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11424010, guid: ee8123bfc365345af9848242443055f6, type: 2}
+      propertyPath: mTrueTypeFont
+      value: 
+      objectReference: {fileID: 12800000, guid: d0ddb928c59ff4605a6490773e075b40,
+        type: 3}
+    - target: {fileID: 11424010, guid: ee8123bfc365345af9848242443055f6, type: 2}
+      propertyPath: mFont
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ee8123bfc365345af9848242443055f6, type: 2}
