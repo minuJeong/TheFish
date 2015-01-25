@@ -1,87 +1,92 @@
 [
     {
         "index": 0,
-        "name": "pantyman",
+        "name": "brother_",
         "rank": "D"
     },
     {
         "index": 1,
-        "name": "bubblepantyman",
+        "name": "merman_",
         "rank": "D"
     },
     {
         "index": 2,
-        "name": "merman",
+        "name": "pantyman",
         "rank": "D"
     },
     {
         "index": 3,
-        "name": "eeman",
+        "name": "cherryswimmer",
         "rank": "D"
     },
     {
         "index": 4,
-        "name": "cherryswimmer",
+        "name": "dasherlinedwoman_",
         "rank": "D"
     },
     {
         "index": 5,
-        "name": "dashedlinedwoman",
+        "name": "wang_",
         "rank": "D"
     },
     {
         "index": 6,
-        "name": "cherryswimmer",
+        "name": "elsa_",
         "rank": "C"
     },
     {
         "index": 7,
-        "name": "pantyman",
+        "name": "dosa_",
         "rank": "C"
     },
     {
         "index": 8,
-        "name": "bubblepantyman",
+        "name": "benom_",
         "rank": "C"
     },
     {
         "index": 9,
-        "name": "merman",
+        "name": "nal_",
         "rank": "C"
     },
     {
         "index": 10,
-        "name": "eeman",
+        "name": "vanny_",
         "rank": "C"
     },
     {
         "index": 11,
-        "name": "cherryswimmer",
+        "name": "luciper_",
         "rank": "C"
     },
     {
         "index": 12,
-        "name": "dashedlinedwoman",
+        "name": "striper_",
         "rank": "C"
     },
     {
         "index": 13,
-        "name": "cherryswimmer",
+        "name": "six_",
         "rank": "B"
     },
     {
         "index": 14,
-        "name": "dashedlinedwoman",
+        "name": "michael_",
         "rank": "A"
     },
     {
         "index": 15,
-        "name": "merman",
+        "name": "bubble_",
         "rank": "S"
     },
     {
         "index": 16,
-        "name": "eeman",
+        "name": "snowwhite_",
+        "rank": "S"
+    },
+    {
+        "index": 17,
+        "name": "chacol_",
         "rank": "S"
     }
 ]

@@ -14,33 +14,53 @@ public class BookUI : MonoBehaviour
 			return;
 		}
 
-		grid = transform.FindChild ("Clip").FindChild ("Foreground").FindChild ("grid").gameObject.GetComponent<UIGrid> ();
-		var item = grid.gameObject.transform.FindChild ("item").gameObject;
+//		grid = transform.FindChild ("Clip").FindChild ("Foreground").FindChild ("grid").gameObject.GetComponent<UIGrid> ();
+//		var item = grid.gameObject.transform.FindChild ("item").gameObject;
 
-		foreach (var pair in book.PawnInfoList) {
-			var info = pair.Value;
+		var item = transform.FindChild ("Clip/Foreground/dragged/item").gameObject;
+
+		var count = book.PawnInfoList.Count;
+		for (int i = 0; i < count; i++) {
+			var pair = book.PawnInfoList [i];
 
 			// Add item object
 			var clone = (GameObject)UnityEngine.Object.Instantiate (item);
-			clone.transform.parent = grid.gameObject.transform;
+			clone.transform.parent = item.transform.parent;
 
 			clone.transform.localPosition = item.transform.localPosition;
 			clone.transform.localScale = item.transform.localScale;
-
-			var newPosition = clone.transform.localPosition;
-			newPosition.y += -275.24f;
-			clone.transform.localPosition = newPosition;
+			clone.transform.localPosition += new Vector3 (0, -305.6f * i, 0);
 
 			// Fill data
 			var name = clone.transform.FindChild ("name_text").gameObject.GetComponent<UILabel> ();
+			var rank = clone.transform.FindChild ("rank_text").gameObject.GetComponent<UILabel> ();
 			var description = clone.transform.FindChild ("description_text").gameObject.GetComponent<UILabel> ();
 
-			name.text = info.name;
-			description.text = info.rank.ToString ();// TODO: rank to description
+			name.text = pair.name;
+			rank.text = pair.rank.ToString ();
+			description.text = pair.rank.ToString ();
 
-			Debug.Log (book.UnlockedList.Contains (pair));
+			clone.GetComponent<UIPanel> ().depth += i;
+
+			if (book.UnlockedList.ContainsValue (pair)) {
+				iTween.MoveBy (clone.transform.FindChild ("curtain").gameObject, iTween.Hash ("amount", new Vector3 (0, 200, 0)));
+			}
 		}
 
 		GameObject.Destroy (item.gameObject);
+	}
+
+	private void Update ()
+	{
+		var dragged = transform.FindChild ("Clip/Foreground/dragged").gameObject;
+		for (int i = 0; i < dragged.transform.childCount; i++) {
+			var g = dragged.transform.GetChild (i);
+			var diff = g.transform.localPosition.y + dragged.transform.localPosition.y;
+			if (Mathf.Abs (diff) > 500) {
+				g.gameObject.SetActive (false);
+			} else {
+				g.gameObject.SetActive (true);
+			}
+		}
 	}
 }

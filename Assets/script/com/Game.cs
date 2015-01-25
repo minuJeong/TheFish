@@ -45,12 +45,6 @@ public class Game : MonoBehaviour
 
 		Vector4 v4 = GetComponentInParent<UIPanel> ().baseClipRegion;
 
-		Debug.Log (GetComponentInParent<UIPanel> ().clipOffset);
-		Debug.Log (GetComponentInParent<UIPanel> ().width);
-		Debug.Log (GetComponentInParent<UIPanel> ().baseClipRegion);
-
-
-
 //		GameArea = new Rect (v4.x, v4.y, v4.w, v4.z);
 
 		Screen.sleepTimeout = SleepTimeout.NeverSleep;
@@ -79,9 +73,9 @@ public class Game : MonoBehaviour
             .GetComponent<FacilityUI> ()
             .Init ();
 
-		Pawn.SprayPawn (transform, 1, true);
-		Pawn.SprayPawn (transform, 1, true);
-		Pawn.SprayPawn (transform, 1, true);
+		Pawn.SprayPawn (transform, 0, true);
+		Pawn.SprayPawn (transform, 0, true);
+		Pawn.SprayPawn (transform, 0, true);
 
 		StartCoroutine (HomeKeyInput ());
 	}
