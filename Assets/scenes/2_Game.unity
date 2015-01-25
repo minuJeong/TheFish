@@ -4225,6 +4225,10 @@ Prefab:
       propertyPath: startingRenderQueue
       value: 3004
       objectReference: {fileID: 0}
+    - target: {fileID: 130892, guid: ee8123bfc365345af9848242443055f6, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ee8123bfc365345af9848242443055f6, type: 2}
   m_RootGameObject: {fileID: 1037603230}
@@ -5535,7 +5539,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3008
+  startingRenderQueue: 3004
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -7572,7 +7576,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1979351820
 Transform:
   m_ObjectHideFlags: 0
