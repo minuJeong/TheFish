@@ -11,6 +11,7 @@ public class BookButton : SimpleButton
 		if (TargetBook.activeSelf)
         {
 			TargetBook.SetActive(false);
+			TargetBook.transform.FindChild ("Clip/Foreground/dragged").localPosition = Vector3.zero;
         }
         else
         {
