@@ -19,7 +19,7 @@ public class DialogManager : MonoBehaviour
 
     private UILabel label;
     private Dictionary<string, List<string>> dialogues = new Dictionary<string, List<string>>();
-    private static float COOLTIME = 120.0f;
+    private static float COOLTIME = 60.0f;
     private static float DURATION = 10.0f;
     private float displayDelay = COOLTIME;
     private float tankDisplayDelay = 0.0f;
@@ -42,9 +42,10 @@ public class DialogManager : MonoBehaviour
             if (displayDuration <= 0.0f)
             {
                 ShowMessage("always");
+                displayDuration = 2.0f;
+                displayDelay = 2.0f;
             }
         }
-
 
         // Next message
         tankDisplayDelay -= Time.deltaTime;
@@ -52,7 +53,7 @@ public class DialogManager : MonoBehaviour
 
         if (displayDelay <= 0.0f)
         {
-            displayDelay += COOLTIME;
+            displayDelay = COOLTIME;
         }
         else
         {
@@ -60,6 +61,7 @@ public class DialogManager : MonoBehaviour
         }
 
         ShowMessage("normal");
+        displayDuration = 58.0f;
     }
 
     private void ShowMessage(string category)
