@@ -30,6 +30,7 @@ public class FacilityUI : MonoBehaviour
             case FacilityUpgradeResult.Success:
                 {
                     SoundManager.Instance().Play("upgrade_facility");
+                    DialogManager.Instance().ShowSpecialMessage("upgradeTank");
                     UpdateTank();
                 }
                 break;
@@ -54,6 +55,7 @@ public class FacilityUI : MonoBehaviour
             case FacilityUpgradeResult.Success:
                 {
                     SoundManager.Instance().Play("upgrade_facility");
+                    DialogManager.Instance().ShowSpecialMessage("upgradeFilter");
                     UpdateFilter();
                 }
                 break;
@@ -78,6 +80,7 @@ public class FacilityUI : MonoBehaviour
             case FacilityUpgradeResult.Success:
                 {
                     SoundManager.Instance().Play("upgrade_facility");
+                    DialogManager.Instance().ShowSpecialMessage("upgradeHeater");
                     UpdateHeater();
                 }
                 break;
