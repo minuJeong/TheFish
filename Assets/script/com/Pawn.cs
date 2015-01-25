@@ -146,7 +146,7 @@ public class Pawn : MonoBehaviour
 		if (growthIndex == 0) {
 			spriteAnimation.namePrefix = "egg_";
 		} else {
-			spriteAnimation.namePrefix = info.name;
+			spriteAnimation.namePrefix = info.name + "_";
 		}
 
 		spriteAnimation.framesPerSecond = 6;
