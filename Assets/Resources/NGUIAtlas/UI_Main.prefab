@@ -43,7 +43,7 @@ MonoBehaviour:
   mSprites:
   - name: book_frame
     x: 0
-    y: 935
+    y: 936
     width: 720
     height: 1112
     borderLeft: 0
@@ -55,8 +55,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: book_item_curtain
-    x: 1388
-    y: 1803
+    x: 1386
+    y: 1804
     width: 629
     height: 244
     borderLeft: 0
@@ -68,8 +68,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: book_item_frame
-    x: 722
-    y: 702
+    x: 721
+    y: 704
     width: 662
     height: 319
     borderLeft: 0
@@ -81,8 +81,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: book_item_rope
-    x: 2740
-    y: 2568
+    x: 2738
+    y: 2569
     width: 26
     height: 246
     borderLeft: 0
@@ -94,8 +94,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: book_paper
-    x: 722
-    y: 1023
+    x: 721
+    y: 1024
     width: 664
     height: 1024
     borderLeft: 0
@@ -107,8 +107,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: border
-    x: 2771
-    y: 2079
+    x: 2769
+    y: 2080
     width: 729
     height: 839
     borderLeft: 0
@@ -120,8 +120,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 6
   - name: button_Book
-    x: 3883
-    y: 2181
+    x: 1797
+    y: 1701
     width: 188
     height: 102
     borderLeft: 0
@@ -133,8 +133,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: button_Book_Pressed
-    x: 1388
-    y: 1442
+    x: 1613
+    y: 1497
     width: 226
     height: 123
     borderLeft: 0
@@ -146,8 +146,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: button_close
-    x: 3919
-    y: 2682
+    x: 3914
+    y: 2472
     width: 135
     height: 107
     borderLeft: 0
@@ -159,8 +159,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: button_Facility
-    x: 3883
-    y: 2077
+    x: 1386
+    y: 1394
     width: 188
     height: 102
     borderLeft: 0
@@ -172,8 +172,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: button_Faculty_Pressed
-    x: 1388
-    y: 1317
+    x: 1570
+    y: 1680
     width: 226
     height: 123
     borderLeft: 0
@@ -185,8 +185,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: button_item_upgrade
-    x: 1388
-    y: 1154
+    x: 1514
+    y: 1223
     width: 267
     height: 57
     borderLeft: 0
@@ -198,8 +198,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: button_item_upgrade_pressed
-    x: 1578
-    y: 1258
+    x: 1514
+    y: 1281
     width: 267
     height: 57
     borderLeft: 0
@@ -211,8 +211,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: button_no
-    x: 4012
-    y: 3325
+    x: 4007
+    y: 3038
     width: 73
     height: 54
     borderLeft: 0
@@ -224,8 +224,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: button_screenshot
-    x: 4012
-    y: 3205
+    x: 4033
+    y: 3364
     width: 62
     height: 62
     borderLeft: 0
@@ -237,8 +237,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 1
   - name: button_Sell
-    x: 1388
-    y: 1213
+    x: 1575
+    y: 1394
     width: 188
     height: 102
     borderLeft: 0
@@ -250,8 +250,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: button_Sell_Pressed
-    x: 1616
-    y: 1442
+    x: 1386
+    y: 1497
     width: 226
     height: 123
     borderLeft: 0
@@ -263,8 +263,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: button_template
-    x: 1616
-    y: 1360
+    x: 3760
+    y: 3427
     width: 305
     height: 80
     borderLeft: 0
@@ -276,8 +276,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: button_upgrade
-    x: 3764
-    y: 3687
+    x: 1386
+    y: 1339
     width: 313
     height: 54
     borderLeft: 0
@@ -289,8 +289,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: button_yes
-    x: 4012
-    y: 3269
+    x: 4007
+    y: 3093
     width: 73
     height: 54
     borderLeft: 0
@@ -302,8 +302,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: dialogue
-    x: 3493
-    y: 3446
+    x: 3490
+    y: 3212
     width: 427
     height: 214
     borderLeft: 0
@@ -315,10 +315,10 @@ MonoBehaviour:
     paddingTop: 12
     paddingBottom: 10
   - name: Facebook_F
-    x: 3493
-    y: 2931
-    width: 251
-    height: 251
+    x: 3914
+    y: 2580
+    width: 128
+    height: 128
     borderLeft: 0
     borderRight: 0
     borderTop: 0
@@ -328,8 +328,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: facility_image_filter_1
-    x: 3894
-    y: 2285
+    x: 3788
+    y: 2724
     width: 194
     height: 195
     borderLeft: 0
@@ -341,8 +341,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: facility_image_filter_2
-    x: 3698
-    y: 2285
+    x: 3719
+    y: 2513
     width: 194
     height: 195
     borderLeft: 0
@@ -354,8 +354,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: facility_image_filter_3
-    x: 3502
-    y: 2088
+    x: 3499
+    y: 2273
     width: 194
     height: 195
     borderLeft: 0
@@ -367,8 +367,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: facility_image_tank_1
-    x: 4046
-    y: 3991
+    x: 4041
+    y: 3756
     width: 33
     height: 105
     borderLeft: 0
@@ -380,8 +380,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: facility_image_tank_2
-    x: 3502
-    y: 2285
+    x: 3499
+    y: 2077
     width: 194
     height: 195
     borderLeft: 0
@@ -393,8 +393,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: facility_image_tank_3
-    x: 3894
-    y: 2482
+    x: 3694
+    y: 2273
     width: 194
     height: 195
     borderLeft: 0
@@ -406,8 +406,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: facility_image_warmer_1
-    x: 3698
-    y: 2482
+    x: 3889
+    y: 2273
     width: 194
     height: 195
     borderLeft: 0
@@ -419,8 +419,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: facility_image_warmer_2
-    x: 3502
-    y: 2482
+    x: 3694
+    y: 2077
     width: 194
     height: 195
     borderLeft: 0
@@ -432,8 +432,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: facility_image_warmer_3
-    x: 3723
-    y: 2723
+    x: 3889
+    y: 2077
     width: 194
     height: 195
     borderLeft: 0
@@ -445,8 +445,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: facility_palette
-    x: 1388
-    y: 1567
+    x: 3490
+    y: 3862
     width: 602
     height: 234
     borderLeft: 0
@@ -459,7 +459,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: facility_paper
     x: 0
-    y: 26
+    y: 28
     width: 650
     height: 907
     borderLeft: 0
@@ -471,8 +471,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: filter_1
-    x: 3765
-    y: 2969
+    x: 3499
+    y: 2709
     width: 288
     height: 210
     borderLeft: 0
@@ -484,8 +484,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: filter_2
-    x: 3502
-    y: 2679
+    x: 3499
+    y: 2469
     width: 219
     height: 239
     borderLeft: 0
@@ -497,8 +497,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: filter_3
-    x: 3765
-    y: 3181
+    x: 3761
+    y: 2948
     width: 245
     height: 263
     borderLeft: 0
@@ -510,8 +510,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: filter_4
-    x: 3493
-    y: 3184
+    x: 3490
+    y: 2951
     width: 270
     height: 260
     borderLeft: 0
@@ -523,8 +523,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: heart
-    x: 4012
-    y: 3381
+    x: 4007
+    y: 3148
     width: 64
     height: 63
     borderLeft: 0
@@ -536,8 +536,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: hero
-    x: 3493
-    y: 3662
+    x: 3490
+    y: 3427
     width: 269
     height: 434
     borderLeft: 0
@@ -549,8 +549,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: lower_button_group
-    x: 722
-    y: 46
+    x: 721
+    y: 51
     width: 603
     height: 92
     borderLeft: 0
@@ -562,8 +562,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: main_game
-    x: 2049
-    y: 2089
+    x: 2048
+    y: 2090
     width: 689
     height: 725
     borderLeft: 0
@@ -588,7 +588,7 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 0
   - name: paper
-    x: 2049
+    x: 2048
     y: 2816
     width: 720
     height: 1280
@@ -601,8 +601,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: surfaceWave
-    x: 2019
-    y: 1728
+    x: 2016
+    y: 1730
     width: 700
     height: 141
     borderLeft: 0
@@ -614,8 +614,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Ubuntu
-    x: 3919
-    y: 2791
+    x: 1386
+    y: 1211
     width: 127
     height: 127
     borderLeft: 0
@@ -627,7 +627,7 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 0
   - name: upgrade_frame
-    x: 2771
+    x: 2769
     y: 2920
     width: 720
     height: 1176
@@ -640,8 +640,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: upgrade_item_border
-    x: 3698
-    y: 2101
+    x: 1386
+    y: 1621
     width: 183
     height: 182
     borderLeft: 0
@@ -653,8 +653,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: upgrade_item_paper
-    x: 722
-    y: 398
+    x: 721
+    y: 401
     width: 657
     height: 302
     borderLeft: 0
@@ -666,8 +666,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: upper_hud_group
-    x: 2721
-    y: 1743
+    x: 2717
+    y: 1745
     width: 729
     height: 126
     borderLeft: 0
@@ -679,8 +679,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: warmer_1
-    x: 3764
-    y: 3743
+    x: 3760
+    y: 3508
     width: 280
     height: 353
     borderLeft: 0
@@ -692,8 +692,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 35
   - name: warmer_2
-    x: 722
-    y: 140
+    x: 721
+    y: 144
     width: 612
     height: 256
     borderLeft: 0
@@ -705,8 +705,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: warmer_3
-    x: 2711
-    y: 1894
+    x: 2707
+    y: 1895
     width: 690
     height: 153
     borderLeft: 0
@@ -718,8 +718,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: warmer_4
-    x: 2019
-    y: 1871
+    x: 2016
+    y: 1872
     width: 690
     height: 176
     borderLeft: 0
@@ -731,8 +731,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: wing
-    x: 3922
-    y: 3498
+    x: 3918
+    y: 3264
     width: 114
     height: 162
     borderLeft: 0

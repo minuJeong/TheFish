@@ -41,9 +41,74 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 9cafc48a29f574e1e9394d57953d61ed, type: 2}
   mSprites:
-  - name: splash
+  - name: '#1'
     x: 0
-    y: 768
+    y: 454
+    width: 693
+    height: 663
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: '#2'
+    x: 0
+    y: 1118
+    width: 694
+    height: 672
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: cursor
+    x: 1866
+    y: 4065
+    width: 54
+    height: 31
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: frame
+    x: 0
+    y: 1791
+    width: 718
+    height: 1024
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: paper
+    x: 0
+    y: 2816
+    width: 720
+    height: 1280
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: splash
+    x: 721
+    y: 2816
     width: 720
     height: 1280
     borderLeft: 0
@@ -55,8 +120,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: splash_fish
-    x: 0
-    y: 46
+    x: 719
+    y: 2094
     width: 667
     height: 721
     borderLeft: 0
@@ -68,8 +133,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: touch_to_start
-    x: 721
-    y: 1991
+    x: 1442
+    y: 4039
     width: 423
     height: 57
     borderLeft: 0
